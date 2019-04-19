@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>改变属性</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: plum;
+        }
+        .mack{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(000, 000, 000, 0.7 );
+            display: none;
+        }
+        .mack ul{
+            margin: 50px auto;
+            padding: 0;
+            width: 400px;
+            height: 300px;
+            list-style: none;
+            background: #ffffff;
+            padding: 0 20px;
+        }
+        h2{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #444444;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        li{
+            display: flex;
+            justify-content: space-between; 
+            margin-bottom: 40px
+        }
+        li button{
+            width: 80px;
+        }
+        .btn{
+            display: flex;
+            justify-content: center
+        }
+        .btn button{
+            margin-left: 10px
+        }
+    </style>
+</head>
+<body>
+    给下面div设置样式<button class="sz">设置样式</button>
+    <div class="box"></div>
+    <div class="mack">
+        <ul>
+            <h2>设置样式</h2>
+            <li>
+                <span>设置宽度:</span>
+                <button class="w1">200px</button>
+                <button class="w2">300px</button>
+                <button class="w3">400px</button>
+            </li>
+            <li>
+                <span>设置高度:</span>
+                <button class="h1">200px</button>
+                <button class="h2">300px</button>
+                <button class="h3">400px</button>
+            </li>
+            <li>
+                <span>设置颜色:</span>
+                <button class="red">red</button>
+                <button class="yellow">yellow</button>
+                <button class="bulle">bulle</button>
+            </li>
+            <div class="btn">
+                <button class="ok">确认</button>
+                <button class="rm">重置</button>
+            </div>
+        </ul>
+    </div>
+</body>
+<script>
+    var sz = document.querySelector('.sz');
+    var mack1 = document.querySelector('.mack');
+    var w1 = document.querySelector('.w1');
+    var w2 = document.querySelector('.w2');
+    var w3 = document.querySelector('.w3');
+    var h1 = document.querySelector('.h1');
+    var h2 = document.querySelector('.h2');
+    var h3 = document.querySelector('.h3');
+    var ok = document.querySelector('.ok');
+    var rm = document.querySelector('.rm');
+    var box = document.querySelector('.box');
+    var red = document.querySelector('.red');
+    var yellow = document.querySelector('.yellow');
+    var bulle = document.querySelector('.bulle')
+
+    sz.onclick=function(){
+        mack1.style.display = 'block'
+    }
+    rm.onclick=function(){
+        mack1.style.display = 'none'
+        box.style.width = '100px';
+        box.style.height = '100px';
+        box.style.background = 'plum';
+    }
+    w1.onclick=function(){
+        box.style.width = '200px';
+    }
+    w2.onclick=function(){
+        box.style.width = '300px';
+    }
+    w3.onclick=function(){
+        box.style.width = '400px';
+    }
+    h1.onclick=function(){
+        box.style.height = '200px';
+    }
+    h2.onclick=function(){
+        box.style.height = '300px';
+    }
+    h3.onclick=function(){
+        box.style.height = '400px';
+    }
+    red.onclick = function(){
+        box.style.background = 'red'
+    }
+    yellow.onclick = function(){
+        box.style.background = 'yellow'
+    }
+    bulle.onclick = function(){
+        box.style.background = 'blue'
+    }
+    
+    ok.onclick = function(){
+        mack1.style.display = 'none';
+    }
+</script>
+</html>

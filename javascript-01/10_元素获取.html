@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="box"></div>
+<div class="box">box1</div>
+<div class="box">box2</div>
+<script type="text/javascript">
+//console.log(document.getElementById("box"));
+
+var box = document.querySelector('.box');
+console.log(box);
+/*
+	document.querySelector('css 选择器'); 
+	根据一个 css 选择器 来获取元素
+
+	注意事项：
+		1) 当选择器匹配多个元素时，只能找到第一个
+		2) querySelector 是 h5 中 新增的方法，不支持IE8及以下
+*/	
+</script>
+</body>
+</html>

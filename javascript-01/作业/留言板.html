@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>留言板</title>
+    <style>
+        .warp{
+            width: 500px;
+            margin: 50px auto
+        }
+        .warp h2{
+            margin: 0;
+            text-align: center;
+            color: #444444;
+            font-weight: 600;
+        }
+        .warp textarea{
+            width: 480px;
+            height: 60px;
+            margin-top: 20px;
+            resize: none;
+            padding: 10px;
+        }
+        .warp button{
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .warp ul{
+            width: 480px;
+            list-style: none;
+            margin: 0;
+            margin-top: 20px;
+            border-top: 1px solid #000000;
+            padding: 10px;
+            padding-top: 0px;
+        }
+        .warp li{
+            height: 40px;
+            border-bottom: 1px solid #666666;
+            line-height: 40px;
+        }
+        .warp li:nth-of-type(2n+1){
+            background: palegoldenrod;
+        }
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <h2>留言板</h2>
+        <textarea id="text"></textarea>
+        <button id="btn">提交留言</button>
+        <ul id="list"></ul>
+    </div>
+</body>
+    <script>
+        var text = document.querySelector('#text');
+        var list = document.querySelector('#list');
+        var btn = document.querySelector('#btn');
+        btn.onclick = function(){
+            var val = text.value;
+            //第一种写法
+            // var html = list.innerHTML;          
+            // list.innerHTML = '<li>' + val + '</li>' + list.innerHTML;
+            list.innerHTML = '<li>' + val + '</li>' + list.innerHTML;
+            text.value = '';
+        }
+
+    </script>
+</html>

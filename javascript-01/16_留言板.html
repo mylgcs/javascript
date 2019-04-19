@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+.wrap {
+	width: 300px;
+	margin: 50px auto;
+}	
+.title {
+	margin: 0;
+	text-align: center;
+	line-height: 40px;
+}
+#text {
+	box-sizing: box-sizing;
+	display: block;
+	width: 100%;
+	border: 1px solid #000;
+	overflow: auto;
+	resize: none;
+	height: 60px;
+}
+#btn {
+	box-sizing: box-sizing;
+	display: block;
+	margin: 10px auto;
+	width: 60%;
+}
+#list {
+	border-top: 1px solid #000;
+	margin: 0;
+	padding: 0 20px;
+	list-style: none;
+}
+#list li {
+	font: 14px/28px "宋体";
+	border-bottom: 1px solid #666;
+}
+#list li:nth-of-type(2n) {
+	background: #f1f1f1;
+}
+</style>
+</head>
+<body>
+<section class="wrap">
+	<h2 class="title">留言板</h2>
+	<textarea id="text"></textarea>
+	<button id="btn" type="button">提交留言</button>
+	<ul id="list">
+		
+	</ul>
+</section>
+<script type="text/javascript">
+var btn = document.querySelector('#btn');
+var text = document.querySelector('#text');	
+var list = document.querySelector('#list');
+
+/*
+	获取表单元素的值的时候，请使用 value
+*/
+
+btn.onclick = function(){
+	var val = text.value;//获取输入框当前value 然后把这个值存入 变量val
+	console.log(val);
+	// list.innerHTML = '<li>' + val + '</li>'; 直接设置 innerHTML 会把里边之前的内容都改覆盖掉
+
+	/*
+		var html = list.innerHTML;
+		
+		list.innerHTML = html + '<li>' + val + '</li>';	
+	*/
+	//list.innerHTML = list.innerHTML + '<li>' + val + '</li>';
+	//list.innerHTML += '<li>' + val + '</li>';	
+
+	list.innerHTML = '<li>' + val + '</li>' + list.innerHTML;
+
+	text.value = "";
+};
+</script>
+</body>
+</html>

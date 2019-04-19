@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box {
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+<!-- 
+	特效交互：用js改变 我们的样式 或者 html结构 
+	1. 写出结构
+	2. 找到需要修改的样式
+	3. 先手动模拟一下JS的操作
+		1) 排除布局问题
+		2) 大概形成思路
+	4. 写js
+
+
+	btn2 点击:
+		找到box
+		给box 设置样式 display： none; 
+-->
+<button 
+	id="btn1" 
+	onclick="document.getElementById('box').style.display='block'">
+	显示
+</button>
+<button 
+	id="btn2"
+	onclick="document.getElementById('box').style.display='none'"
+>
+	隐藏
+</button>
+<div id="box"></div>
+<script type="text/javascript">
+/* 获取元素 */
+document.getElementById("btn1");
+
+/*
+document.getElementById("idName");	
+在文档中通过id来获取元素
+
+document 文档
+get 获取
+Element 元素
+By 通过
+Id
+
+console.log(); //在控制台输出信息
+
+事件：与文档元素或浏览器发生的一些特定的交互瞬间，
+会产生事件事件由系统事先设定的、
+能被对象识别和响应的动作，如果click,mouseover...
+可以绑定一个事件处理函数，当事件发生时，执行相对应的代码
+
+onclick 点击事件(当用户点击这个元素的时候，我们要做的一些事情)
+
+
+*/	
+</script>
+</body>
+</html>
