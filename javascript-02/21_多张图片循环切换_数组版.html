@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#wrap {
+			margin: 30px auto;
+			width: 550px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<input type="button" value="prev" id="prev">
+	<input type="button" value="next" id="next">
+	<p id="page">0/0</p>
+	<img src="img/img01.jpg">	
+</div>
+<script type="text/javascript">
+var next = document.querySelector('#next');
+var prev = document.querySelector('#prev');
+var img = document.querySelector('img');
+var page = document.querySelector('#page');
+var nub = 0;
+var arr = [
+	"img/img01.jpg",
+	"img/img02.jpg",
+	"img/img03.jpg",
+	"img/img04.jpg"
+];
+page.innerHTML = (nub+1)+"/"+arr.length;
+/*
+0 - 2
+
+获取数组的最后一位
+*/
+
+var toNext = function(){
+	nub++;
+	if(nub > arr.length - 1){
+		// 走过了最后一张，我们需要让他回到 0 张
+		nub = 0;
+	}
+	img.src = arr[nub];
+	page.innerHTML = (nub+1)+"/"+arr.length;
+};
+next.onclick = toNext;
+prev.onclick = function(){
+	nub--;
+	if(nub < 0){
+		//走过了第一张，我们需要让他回到 最后一张
+		nub = arr.length - 1;
+	}
+	img.src = arr[nub];
+	page.innerHTML = (nub+1)+"/"+arr.length;
+};
+</script>
+</body>
+</html>

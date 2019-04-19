@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击图片切换</title>
+</head>
+<body>
+    <img src="/img/img01.jpg" alt="" srcset="" class="box">
+</body>
+<script>
+    var box = document.querySelector('.box');
+    box.onclick=function(){
+        if (box.classList.contains('show')) {
+            box.src = "/img/img01.jpg"
+            box.classList.remove('show')            
+        } else {
+            box.src = "/img/img02.jpg"
+            box.classList.add('show')
+        }
+    }
+</script>
+</html>

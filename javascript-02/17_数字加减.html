@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<input type="button" value="+" id="next">
+<input type="button" value="-" id="prev">
+<script type="text/javascript">
+var next = document.querySelector('#next');
+var prev = document.querySelector('#prev');
+var nub = 0;
+// next 点击的时候 nub + 1;
+// prev 点击的时候 nub - 1;
+
+/*
+	当 nub > 5 就 停止自增 
+	当 nub < 0 就 停止自减
+*/
+
+next.onclick = function(){
+	//nub = nub + 1;
+	nub++;//自增 在自身的基础上 +1;
+	if(nub > 5){
+		nub = 5;
+	}
+	console.log(nub);
+};
+prev.onclick = function(){
+	//nub = nub - 1;
+	nub--;//自减 在自身的基础上 -1;
+	if(nub < 0){
+		nub = 0;
+	}
+	console.log(nub);
+};
+</script>	
+</body>
+</html>

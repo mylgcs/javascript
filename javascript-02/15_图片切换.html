@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<img src="img/img01.jpg" class="show">
+<script type="text/javascript">
+//img/img01.jpg , img/img02.jpg
+
+var img = document.querySelector('img');
+img.onclick = function(){
+	if (img.classList.contains("show")){
+		img.src = "img/img02.jpg";
+	} else {
+		img.src = "img/img01.jpg";
+	}
+	img.classList.toggle("show");
+};
+/*
+	自定义判断条件(开关)
+	没有特别的合适判读条我们可以人为去添加一些条件
+*/
+</script>	
+</body>
+</html>

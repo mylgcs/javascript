@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box {
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+		.box2 {
+			border: 10px solid #000;
+		}
+		.box3 {
+			box-shadow: 0 0 30px green;
+		}
+		.box4 {
+			margin: 50px auto;
+		} 
+		.box5 {
+			transform: rotate(45deg);
+		}
+	</style>
+</head>
+<body>
+<div id="box" class="box2 box3 box4"></div>
+<script type="text/javascript">
+var box = document.querySelector('#box');
+box.classList.add("box5","box6")
+/*
+	向元素中添加class，每个class之间以, 号隔开
+*/
+</script>
+</body>
+</html>

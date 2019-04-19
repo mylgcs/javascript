@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#wrap {
+			margin: 30px auto;
+			width: 550px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<input type="button" value="prev" id="prev">
+	<input type="button" value="next" id="next">
+	<img src="img/img01.jpg">	
+</div>
+<script type="text/javascript">
+var next = document.querySelector('#next');
+var prev = document.querySelector('#prev');
+var img = document.querySelector('img');
+var nub = 0;
+var arr = [
+	"img/img01.jpg",
+	"img/img02.jpg",
+	"img/img03.jpg"
+];
+/*
+0 - 2
+
+获取数组的最后一位
+*/
+next.onclick = function(){
+	nub++;
+	if(nub > arr.length - 1){
+		nub = arr.length - 1;
+		alert("已经是最后一张了");
+	}
+	img.src = arr[nub];
+};
+prev.onclick = function(){
+	nub--;
+	if(nub < 0){
+		nub = 0;
+		alert("已经是第一张了");
+	}
+	img.src = arr[nub];
+};
+</script>
+</body>
+</html>

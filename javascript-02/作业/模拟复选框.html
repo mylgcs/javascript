@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模拟复选框</title>
+    <style>
+        .box{
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000000;
+            padding: 4px;
+            background-clip: content-box !important;
+            margin: 50px auto
+        }
+        .show{
+            background: #000000
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    var box = document.querySelector('.box');
+    box.onclick=function(){
+        //第一种方法
+        //box.classList.toggle('show')
+        //第二种方法
+        if (box.classList.contains('show')) {
+            box.classList.remove('show')
+        } else {
+            box.classList.add('show')
+        }
+    }
+</script>
+</html>

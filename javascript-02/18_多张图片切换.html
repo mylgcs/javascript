@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#wrap {
+			margin: 30px auto;
+			width: 550px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<input type="button" value="prev" id="prev">
+	<input type="button" value="next" id="next">
+	<img src="img/img01.jpg">	
+</div>
+<script type="text/javascript">
+var next = document.querySelector('#next');
+var prev = document.querySelector('#prev');
+var img = document.querySelector('img');
+var nub = 1;
+next.onclick = function(){
+	nub++;
+	if(nub > 4){
+		nub = 4;
+		alert("已经是最后一张了")
+	}
+	img.src = "img/img0" + nub + ".jpg";
+};
+prev.onclick = function(){
+	nub--;
+	if(nub < 1){
+		nub = 1;
+		alert("已经第一张了")
+	}
+	img.src = "img/img0" + nub + ".jpg";
+};
+</script>
+</body>
+</html>

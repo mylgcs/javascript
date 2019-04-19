@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+#box {
+	width: 100px;
+	height: 100px;
+	background: red;
+}	
+</style>
+</head>
+<body>
+<select id="select">
+	<option>width</option>
+	<option>height</option>
+	<option>background</option>
+</select>
+<input type="text" value="300px" id="val">
+<input type="button" value="设置" id="setBtn">
+<div id="box"></div>
+<script type="text/javascript">
+var box = document.getElementById('box');
+var select = document.querySelector('#select');
+var val = document.querySelector('#val');
+var setBtn = document.querySelector('#setBtn');
+
+setBtn.onclick = function(){
+	var attr = select.value;
+	var value = val.value;
+	//box.style.attr = value;
+
+	box.style[attr] = value;
+	/*
+		使用 . 操作属性时，属性名不能用变量
+		如果 属性名 是一个变量调用 请用 第二种写法 []
+
+		[] 属性操作第二种写法，在[] 接收是个字符串
+	*/
+
+	/*
+		加法运算
+	如果两边都为数字，做加法运算
+
+ 字符串拼接
+如果有一边为字符串，会把另一边转成字符串，做字符串拼接
+
+	*/
+};
+</script>
+</body>
+</html>

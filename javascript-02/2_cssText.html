@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+#box {
+	width: 100px;
+	height: 100px;
+	background: red;
+}	
+</style>
+</head>
+<body>
+<input type="button" id="btnWidth" value="width">
+<input type="button" id="btnHeight" value="height">
+<input type="button" id="btnBg" value="background">
+<input type="button" id="reset" value="重置">
+<div id="box"></div>
+<script type="text/javascript">
+var box = document.getElementById('box');
+var btnW = document.querySelector('#btnWidth');
+var btnH = document.querySelector('#btnHeight');
+var btnBg = document.querySelector('#btnBg');
+var reset = document.querySelector('#reset');
+btnW.onclick = function(){
+	box.style.width = "300px";
+};
+btnH.onclick = function(){
+	box.style.height = "400px";
+};
+btnBg.onclick = function(){
+	box.style.background = "blue";
+};
+reset.onclick = function(){
+	//box.style.cssText += "width:200px";
+	/*
+		box.style.cssText = "width:200px";
+		直接设置cssText 会把之前行间的所有样式都覆盖掉
+	*/
+	//console.log(box.style.cssText);
+	box.style.cssText = "";
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<img src="img/img01.jpg" class="show">
+<script type="text/javascript">
+//img/img01.jpg , img/img02.jpg
+
+var img = document.querySelector('img');
+img.onclick = function(){
+	//console.log(img.classList.contains("show"));
+	if (img.classList.contains("show")){
+		img.src = "img/img02.jpg";
+		img.classList.remove("show");
+	} else {
+		img.src = "img/img01.jpg";
+		img.classList.add("show");
+	}
+	//img.classList.toggle("show");
+};
+</script>	
+</body>
+</html>

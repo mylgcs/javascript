@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#list {
+			display: none;
+		}
+		.show {
+			display: block !important;
+		}
+	</style>
+</head>
+<body>
+<input type="button" value="显示隐藏" id="btn">
+<ul id="list" class="">
+	<li>菜单</li>
+	<li>菜单</li>
+	<li>菜单</li>
+	<li>菜单</li>
+</ul>
+<script type="text/javascript">
+var btn = document.querySelector('#btn');
+var list = document.querySelector('#list');
+btn.onclick = function(){
+/*
+	如果 list的class中有"show"
+		list的class中 删除 show
+	否则
+		list的class中 添加 show	
+*/
+	if(list.classList.contains("show")){
+		list.classList.remove("show");
+	} else {
+		list.classList.add("show");
+	}
+};
+</script>	
+</body>
+</html>
