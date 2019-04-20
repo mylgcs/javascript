@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>生成100个div</title>
+		<style type="text/css">
+			.wrap{
+				width: 500px;
+				height: 500px;
+				border: 1px solid #000000;
+				margin: 0 auto;
+				position: relative;
+			}
+			.wrap div{
+				width: 48px;
+				height: 48px;
+				position: absolute;
+				background: #DDA0DD;
+				border: 1px solid #000000;
+				text-align: center;
+				line-height: 48px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let wrap = document.querySelector(".wrap")
+		let str = wrap.innerHTML;
+		for (let i = 0; i < 10; i++) {
+			for (let j = 0; j < 10; j++) {
+				str += ' <div style="top:'+(i*50)+'px;left:'+(j*50)+'px; ">'+(i*10+j)+'</div>'
+			}
+		}
+		wrap.innerHTML = str
+	</script>
+</html>
