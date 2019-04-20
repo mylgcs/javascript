@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选项卡</title>
+		<style type="text/css">
+			.wrap{
+				width: 300px;
+				margin: 50px auto;
+			}
+			.box {
+				width: 300px;
+				height: 30px;
+				border: 1px solid #000000;
+				margin: 50px auto 0;
+			}
+			.box a {
+				width: 98px;
+				height: 28px;
+				border: 1px solid #000000;
+				float: left;
+				line-height: 28px;
+				text-align: center;
+				text-decoration: none;
+				color: #000000;
+			}
+			.box .active {
+				color: white;
+				background: #000000;
+			}
+			.cons{
+				width: 302px;
+				height: 150px;
+			}
+			.cons img{
+				width: 100%;
+				display: none;
+			}
+			.cons .show{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<nav class="box">
+				<a class="active" href="javascript:;">选项一</a>
+				<a href="javascript:;">选项二</a>
+				<a href="javascript:;">选项三</a>
+			</nav>
+			<div class="cons">
+				<img class="show" src="../img/img01.jpg" alt="">
+				<img src="../img/img02.jpg" alt="">
+				<img src="../img/img03.jpg" alt="">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let box = document.querySelector(".box")
+		let a = box.querySelectorAll('a')
+		let cons = document.querySelector(".cons")
+		let img = cons.querySelectorAll('img')
+		for (let i = 0; i < a.length; i++) {
+			a[i].index=i
+			a[i].onmouseover = function (){
+				for (let i = 0; i < a.length; i++) {
+					a[i].classList.remove('active')
+					img[i].classList.remove('show')
+				}
+				this.classList.add('active')
+				img[this.index].classList.add('show')
+			}
+		}
+	</script>
+</html>
