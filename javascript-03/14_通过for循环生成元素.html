@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+#box {
+	width: 500px;
+	border: 1px solid #000;
+	overflow: hidden;
+}	
+#box div {
+	float: left;
+	width: 98px;
+	height: 98px;
+	border: 1px solid #fff;
+}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var box = document.getElementById("box");
+	var inner = "";
+	for(var i = 0; i < 10; i++){
+		if(i < 5){
+			inner += '<div style="background:red;">'+i+'</div>';
+		} else {
+			inner += '<div style="background:yellow;">'+i+'</div>';	
+		}
+	}
+	box.innerHTML = inner;
+	// 操作完innerHTML 之后，再去获取元素
+	var divs = box.querySelectorAll('div');
+	for(var i = 0; i < divs.length; i++){
+		// 循环是在页面加载完之后执行的
+		divs[i].onclick = function(){
+			/* 
+			点击事件中的代码是在 用户点击之后才会执行，
+			这会外边的循环已经执行完了，所以在这里使用
+			外边循环中 i，只能拿到循环之后结果	
+			*/
+			alert(i);
+		}
+	}
+};	
+</script>
+</head>
+<body>
+<div id="box"></div>	
+</body>
+</html>

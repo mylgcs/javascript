@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.wrap {
+			margin: 50px auto;
+			width: 302px;
+		}
+		.nav {
+			height: 30px;
+			border: 1px solid #000;
+		}
+		.nav a {
+			float: left;
+			width: 98px;
+			font: 14px/28px "宋体"; 
+			text-align: center;
+			border: 1px solid #000;
+			color: #000;
+			text-decoration: none;
+		}
+		.nav .active {
+			color: #fff;
+			background: #000;
+		}
+		.cons {
+			border: 1px solid #fff;
+		}
+		.cons img {
+			width: 100%;
+			display: none;
+		}
+		.cons .show {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+<input type="button" value="按钮">	
+<script type="text/javascript">
+var btn = document.querySelector('input');
+btn.妙味课堂 = "大家都棒棒的";
+console.log(btn.妙味课堂);
+btn.onclick = function(){
+	alert(this.妙味课堂);
+};
+/*
+	内置属性：标准中已经给元素规定的属性
+	自定义属性：我们自己给元素设置的标准以外的属性
+*/
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="wrap">
+	<ul class="list">
+		<li>
+			<button>1</button>
+		</li>
+		<li>
+			<button>2</button>
+		</li>
+		<li>
+			<button>3</button>
+		</li>
+		<li>
+			<button>4</button>
+		</li>
+	</ul>
+</div>	
+<script type="text/javascript">
+var wrap = document.getElementById('wrap');
+var btns = wrap.querySelectorAll('button');	
+/*
+	在js不能直接操作一组元素，
+	如果我们想要批量操作一组元素，请使用循环
+*/
+// btns[0].onclick = function(){
+// 	console.log(1);
+// };
+// btns[1].onclick = function(){
+// 	console.log(1);
+// };
+// btns[2].onclick = function(){
+// 	console.log(1);
+// };
+// btns[3].onclick = function(){
+// 	console.log(1);
+// };
+
+for(var i = 0; i < 4; i++){
+
+	btns[i].onclick = function(){
+		console.log(1);
+	}
+}
+
+/*
+	1. 给 btns 这些按钮统一添加一个点击事件
+	2. 点击之后，弹出自己的value
+*/
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.nav {
+			width: 300px;
+			height: 30px;
+			border: 1px solid #000;
+		}
+		.nav a {
+			float: left;
+			width: 98px;
+			font: 14px/28px "宋体"; 
+			text-align: center;
+			border: 1px solid #000;
+			color: #000;
+			text-decoration: none;
+		}
+		.nav .active {
+			color: #fff;
+			background: #000;
+		}
+	</style>
+</head>
+<body>
+<nav class="nav">
+	<a href="javascript:;">选项一</a>
+	<a href="javascript:;">选项二</a>
+	<a href="javascript:;">选项三</a>
+</nav>	
+<script type="text/javascript">
+var nav = document.querySelector('.nav');
+var navs = nav.querySelectorAll('a');
+for(var i = 0; i < navs.length; i++){
+	navs[i].onclick = fn;
+}
+function fn(){
+	this.classList.toggle("active");
+}
+</script>
+</body>
+</html>

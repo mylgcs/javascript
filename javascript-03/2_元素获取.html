@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		// 在这里获取元素，由于代码还没有解析到下边的结构所以，找不到元素
+		// var box = document.getElementById("box");
+		// alert(box);
+		// console.log(box);
+		// null 空(空对象，找不到对象)
+
+		/*
+			window 是JS中的顶层对象
+
+			onload 加载完成
+
+			window.onload 页面上所有的资源加载完成之后，执行
+		*/
+		window.onload = function(){
+			var box = document.getElementById("box");
+			alert(box);
+			console.log(box);
+		};
+	</script>
+</head>
+<body>
+<div id="box" class="box">box1</div>
+<div id="box2" class="box">box2</div>
+</body>
+</html>

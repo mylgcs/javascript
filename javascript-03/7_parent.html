@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="wrap">
+	<ul class="list">
+		<li>
+			<button>1</button>
+		</li>
+		<li>
+			<button>2</button>
+		</li>
+		<li>
+			<button>3</button>
+		</li>
+		<li>
+			<button>4</button>
+		</li>
+	</ul>
+</div>	
+<script type="text/javascript">
+/*
+	document.getElementById("id名字")
+	parent.querySelector("css 选择器");
+	parent.querySelectorAll("css 选择器");
+	parent.getElementsByTagName("标签名字")
+	parent.getElementsByClassName("class名字")
+*/
+var wrap = document.getElementById('wrap');
+var list = wrap.querySelector('.list');
+var lis = list.getElementsByTagName("li");
+var btns = list.querySelectorAll('button');	
+console.log(wrap,list,lis,btns);
+</script>
+</body>
+</html>

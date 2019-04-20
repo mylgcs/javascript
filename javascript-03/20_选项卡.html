@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.wrap {
+			margin: 50px auto;
+			width: 302px;
+		}
+		.nav {
+			height: 30px;
+			border: 1px solid #000;
+		}
+		.nav a {
+			float: left;
+			width: 98px;
+			font: 14px/28px "宋体"; 
+			text-align: center;
+			border: 1px solid #000;
+			color: #000;
+			text-decoration: none;
+		}
+		.nav .active {
+			color: #fff;
+			background: #000;
+		}
+		.cons {
+			border: 1px solid #fff;
+		}
+		.cons img {
+			width: 100%;
+			display: none;
+		}
+		.cons .show {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<nav class="nav">
+		<a id="0" href="javascript:;" class="active">选项一</a>
+		<a id="1" href="javascript:;">选项二</a>
+		<a id="2" href="javascript:;">选项三</a>
+	</nav>
+	<div class="cons">
+		<img src="img/img01.jpg" class="show">
+		<img src="img/img02.jpg">
+		<img src="img/img03.jpg">
+	<div>
+</div>	
+<script type="text/javascript">
+var navs = document.querySelectorAll('.nav a');
+var imgs = document.querySelectorAll('.cons img');
+for(var i = 0; i < navs.length; i++){
+	navs[i].onmouseover = function(){
+		/* 去掉所有项的选中 或显示 */
+		for(var i = 0; i < navs.length; i++){
+			navs[i].classList.remove("active");
+			imgs[i].classList.remove("show")
+		}
+
+		/* 选中当前项 */
+		this.classList.add("active");
+		//console.log(this.id);
+		/* 把当前项对应的内容显示出来 */
+		imgs[this.id].classList.add("show");
+	};
+} 
+</script>
+</body>
+</html>

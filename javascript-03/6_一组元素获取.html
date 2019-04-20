@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="box" class="box">box1</div>
+<div id="box2" class="box">box2</div>
+<script type="text/javascript">
+var box = document.getElementsByClassName("box");
+
+box[0].onclick = function(){
+	alert(1);
+};
+box[1].onclick = function(){
+	alert(1);
+};
+/*
+	parent.getElementsByClassName('类名');
+	
+	通过 class 获取一组元素（类数组）
+
+	一组元素在js中，不能直接操作哪怕，这组元素只有一个
+
+	操作一组元素的时候，需要使用使用下标，每次操作一个
+
+	如果我们想要批量操作一组元素的时候，需要使用 循环
+
+
+*/
+</script>
+</body>
+</html>

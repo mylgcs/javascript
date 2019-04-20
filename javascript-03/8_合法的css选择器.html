@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="wrap">
+	<ul class="list">
+		<li>
+			<button>1</button>
+		</li>
+		<li>
+			<button>2</button>
+		</li>
+		<li>
+			<button>3</button>
+		</li>
+		<li>
+			<button>4</button>
+		</li>
+	</ul>
+</div>	
+<script type="text/javascript">
+var wrap = document.getElementById('wrap');
+var list = wrap.querySelectorAll('.list li:nth-of-type(2n)');
+console.log(list);
+</script>
+</body>
+</html>
