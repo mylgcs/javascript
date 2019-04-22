@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>百度评分</title>
+		<link rel="stylesheet" type="text/css" href="css/pingfen.css"/>
+		<style>
+			body,h1 {
+				margin: 0;
+				padding: 0;
+				-webkit-font-smoothing: antialiased;
+			}
+			.starts{
+				overflow:hidden;
+			}
+			.starts span{
+				display: block;
+				float: left;
+				padding: 3px;
+			}
+			.starts span:after {
+				content: '☆'
+			}
+			.starts .show:after,.starts .show2:after {
+				content: '★'
+			}
+		
+			.wrap .starts .show {
+				color: #e4c6e4;
+			}
+			.wrap .starts .show2 {
+				color: #e15671;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="baidu">
+				<div class="caption">
+					<h1></h1>
+					<span>总体评价</span>
+				</div>
+				<div class="context">
+					<div class="starts">
+						<span class=""></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<div class="info">优秀</div>
+				</div>
+				<div class="tips">
+					小提示：点击星星就能打分
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let starts = document.querySelectorAll(".starts span");
+		let info =document.querySelector('.info')
+		let pf = ["极差","差","一般","良好","优秀"];
+		let active = -1;
+		let name = '';
+		/* for (let i = 0; i < starts.length; i++) {
+			starts[i].index = i;
+			//鼠标移入
+			starts[i].onmouseover = function(){
+				let name = ''
+				if (this.index<2) {
+					name ='show'
+				} else{
+					name ='show2'
+				}
+				for (let i = 0; i < starts.length; i++) {
+					if( i <= this.index ){
+						starts[i].className = name
+					}else{
+						starts[i].className =''
+					}
+				}
+				info.innerHTML = pf[this.index]
+				info.style.display = 'block'
+			}
+			//鼠标移出
+			starts[i].onmouseout = function(){
+				let name = '';
+				//active < 2 ? name = 'show' : name = 'show2'
+				if (active < 2) {
+					name ='show'
+				} else{
+					name ='show2'
+				}
+				for (let i = 0; i < starts.length; i++) {
+					if (i <= active) {
+						starts[i].className = name
+					} else{
+						starts[i].className =''
+					}
+				}
+				if (active<0) {
+					info.style.display = 'none'
+				} else{
+					info.style.display = 'block'
+				}
+			}
+			starts[i].onclick = function (){
+				active = this.index;
+			}
+		} */
+		/* for (let i = 0; i < starts.length; i++) {
+			//添加索引值
+			starts[i].index = i
+			//鼠标移入事件
+			starts[i].onmouseover = toOver;
+			//鼠标移出事件
+			starts[i].onmouseout = toOut;
+			//鼠标点击事件
+			starts[i].onclick = toClik;
+		}
+		function toOver() {
+			let name = ''
+			if ( this.index < 2 ) {
+				name = 'show'
+			} else{
+				name = 'show2'
+			}
+			for (let i = 0; i < starts.length; i++) {
+				if ( i <= this.index ) {
+					starts[i].className = name
+				} else{
+					starts[i].className = ''
+				}
+			}
+			info.innerHTML = pf[this.index];
+			info.style.display = 'block'
+		}
+		function  toOut() {
+			let name = ''
+			if ( active < 2) {
+				name = 'show'
+			} else{
+				name = 'show2'
+			}
+			for (let i = 0; i < starts.length; i++) {
+				if ( i <= active ) {
+					starts[i].className = name
+				} else{								
+					starts[i].className = ''
+				}
+			}
+			if ( active <= 0 ) {
+				info.style.display = 'none'
+			} else{
+				info.style.display = 'block'
+			}
+		}
+		function  toClik() {
+			active = this.index
+		} */
+		//三目运算写法
+		for( let i = 0; i < starts.length; i++ ){
+			//添加索引值
+			starts[i].index = i;
+			//鼠标移入事件
+			starts[i].onmouseover = toOver;
+			//鼠标移出事件
+			starts[i].onmouseout = toOut;
+			//点击事件
+			starts[i].onclick = toClik;
+			
+			
+		}
+		function toOver() {		
+			this.index < 2 ? name = 'show' : name = 'show2' ;
+			for (let i = 0; i < starts.length; i++) {
+				i <= this.index ? starts[i].className = name : starts[i].className = '' ;
+			}
+			info.innerHTML = pf[this.index]
+			info.style.display = 'block'
+		}
+		function toOut(){
+			active < 2 ? name = 'show' : name = 'show2' ;
+			for (let i = 0; i < starts.length; i++) {
+				i <= active ? starts[i].className = name : starts[i].className = ''
+			}
+			active < 0 ? info.style.display = 'none' : info.style.display= 'block'
+		}
+		function toClik(){
+			active = this.index;
+		}
+	</script>
+</html>
