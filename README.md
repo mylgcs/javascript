@@ -1,1 +1,1 @@
-#JavaScript 基础入门第二天
+#JavaScript 基础入门第二天 元素的其他属性 字符串 丶classList的使用丶流程控制----if丶数组
