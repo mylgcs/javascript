@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{
+				width: 300px;
+				height: 500px;
+				border: #000000 1px solid;
+				margin: 30px auto;
+			}
+			ul,h2{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			h2{
+				font-size: 22px;
+				background: #444444;
+				color: white;
+				height: 40px;
+				line-height: 40px;
+				position: relative;
+				text-indent: 35px;
+			}
+			h2:after{
+				content: '';
+				position: absolute;
+				border-top: 10px transparent dashed;
+				border-right: 10px transparent dashed;
+				border-bottom: 10px transparent dashed;
+				border-left: 10px #fff solid;
+				left: 10px;
+				top: 10px;				
+			}
+			.active:after{
+				content: '';
+				position: absolute;
+				border-left: 10px transparent dashed;
+				border-right: 10px transparent dashed;
+				border-bottom: 10px transparent dashed;
+				border-top: 10px #fff solid;
+				left: :;px;
+				top: 16px;	
+			}
+			a{
+				display: block;
+				height: 30px;
+				text-decoration: none;
+				line-height: 30px;
+				background: #CCCCCC;
+				border-bottom: 1px solid #000000;
+				text-indent: 40px;
+				color: peru;
+				font-size: 18px;
+			}
+			.con{
+				display: none;
+			}
+			.con.show{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<ul>
+				<li>
+					<h2>我的好友</h2>
+					<div class="con">
+						<a href="javascript:;">张三</a>
+						<a href="javascript:;">张三</a>
+						<a href="javascript:;">张三</a>
+					</div>
+				</li>
+				<li>
+					<h2>企业好友</h2>
+					<div class="con">
+						<a href="javascript:;">李四</a>
+						<a href="javascript:;">李四</a>
+						<a href="javascript:;">李四</a>
+					</div>
+				</li>
+				<li>
+					<h2>黑名单</h2>
+					<div class="con">
+						<a href="javascript:;">王五</a>
+						<a href="javascript:;">王五</a>
+						<a href="javascript:;">王五</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let wrap = document.querySelector(".wrap");
+		let h2 = wrap.querySelectorAll('h2')
+		let con = wrap.querySelectorAll('.con')
+		let a = wrap.querySelectorAll('a')
+		//显示多个
+		/* for (let i = 0; i < h2.length; i++) {
+			h2[i].index = i;
+			h2[i].onclick = function (){
+				this.classList.toggle('active')
+				con[this.index].classList.toggle('show')
+			}
+		} */
+		//显示一个
+		for( let i = 0;i < h2.length; i++ ){
+			h2[i].index=i;
+			h2[i].onclick = function(){
+				for (let i = 0; i < h2.length; i++) {
+					h2[i].classList.remove('active');
+					con[i].classList.remove('show')
+				}
+				this.classList.add('active')
+				con[this.index].classList.add('show')
+			}
+		}
+		
+		
+		
+		
+		//高亮
+		for (let i = 0; i < a.length; i++) {
+			a[i].onclick = function (){
+				for (let i = 0; i < a.length; i++) {
+					a[i].style.background = '#CCCCCC'
+					a[i].style.color = 'peru'
+				}
+				this.style.background = 'darkorange'
+				this.style.color = '#fff'
+			}
+			
+		}
+	</script>
+</html>
