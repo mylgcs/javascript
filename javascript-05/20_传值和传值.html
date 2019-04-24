@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script type="text/javascript">
+/*
+	传值 和 传址
+
+	在js中，基础类型数据在赋值的过程中，传递的是数值,
+	对象在赋值的过程中，传递的是内存中的引用地址
+*/	
+
+// 传值
+var a = 0;
+var b = a;
+b = 3;
+console.log(a);
+
+// 传址
+
+var c = [2]; 
+var d = c;
+d[0] = 4;
+console.log(c);
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

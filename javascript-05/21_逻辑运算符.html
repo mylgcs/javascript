@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+// var a = 0;
+// console.log(!a);
+/*
+	逻辑运算符
+		&& 与、|| 或、! 否 、三目运算符
+
+	! 否 取反
+	碰到非布尔值类型的数据，会调用 Boolean,转换成布尔值之后，再进行计算
+
+	三目运算符
+	条件语句?成立的结果:不成立的结果
+
+	1.条件语句中的运算结果，不是布尔值的话，就转成布尔值
+	2. 条件语句 如果返回 true 就返回 成立的结果 否则 返回不成立的结果
+
+
+	&& 与 (并且)
+	
+	1.第一位是布尔值的 true 时，返回第二位的值，例如：true&&1 返回 1
+	2. 第一位是布尔值的 false 时，直接返回 false
+	3. 第一位不是布尔值，则调用Boolean()进行转换，如果转换的结果为 true 则返回第二个值，否则，返回第一位的值 (注意：是值不是转换后的 false)
+	4. 如果有一个值为 null，返回 null
+	5. 如果有一个值为 NaN，返回 NaN
+	6. 如果有一个值为 undefined，返回 undefined
+
+	|| 或者
+	如果第一个值经Boolean()转换后为false，则返回第二个值，否则返回第一个值 (注意：是值不是转换后的 true)
+
+*/	
+// var a = 0;
+// var b = 3;
+// if(a < b
+// || a == 0){
+// 	console.log("执行语句");
+// }
+//console.log(0&&2);
+console.log(0||null);
+</script>
+</body>
+</html>

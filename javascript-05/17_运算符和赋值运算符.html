@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+	算术运算符
+	+ 加、- 减、* 乘、/ 除、% 取模（求余数）、++、--
+
+	赋值运算符
+	=、+=、-=、*=、/=、%=
+*/	
+/*
+	除了 + += 其他所有的运算符只能进行数字运算，所以遇到非数字，会转换成数字进行运算
+*/
+var a = undefined;
+var b = null;
+console.log(a + b);
+/*
+	+=,+ 数字运算，字符串连接
+	
+	1. 如果两边都是数字，进行数字运算
+	2. 如果 一边是否字符串，就把另一边转换成字符串进行连接
+	3. 如果是布尔值转换成数字进行运算
+	4. 如果是对象 就先调用对象的 valueOf 方法，然后调用对象的toString() 转成字符串之后,然后进行字符串连接
+	5. 如果一边数字或null，一边undefined 返回NaN，其余情况 undefined 都转换字符串进行连接
+	6. null 先转换成数字，然后进行计算
+
+
+
+*/
+</script>	
+</body>
+</html>
