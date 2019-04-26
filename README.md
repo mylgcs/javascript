@@ -1,1 +1,1 @@
-#javascript 基础入门
+#javascript 基础入门 深入了解函数丶作用域丶作用域链丶闭包
