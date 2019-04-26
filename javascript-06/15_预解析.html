@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+var a;
+/*
+	js预解析
+
+		var js 正常解析之前，会先快速把 script(或者function) 中的 var 声明，及声明的名字，提升到代码块(作用域)的最前边
+
+		function 正常解析之前，会先快速把 script(或者function) 中的 function 及内容，提升到代码块(作用域)的最前边，跟在 var 声明之后.
+
+	预解析之后，js 再会从上到下 一行一行去执行
+*/	
+alert(a);
+a = 0;
+function a() {
+	alert(1);
+}
+</script>	
+</body>
+</html>

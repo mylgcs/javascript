@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+	局部作用域(函数作用域):
+		声明在函数内部的数据(参数，函数，变量),就只能在这个函数内部进行调用和修改,那这些数据我们就叫做这个函数的局部数据(或者私有数据),同样，对于这些数据他们起作用的范围也只是这个函数内部,这数据的作用范围是局部，所以又叫做局部作用局或者函数作用局
+*/
+function fn(b){
+	var a = 0;
+	console.log(a);
+	a = 10;
+	console.log(a);
+}
+function fn2(){
+	alert(a);
+}
+fn();
+fn2();
+</script>	
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+function fn(){
+	var a = 10;
+	return function(){
+		return a;
+	}; 
+}	
+var b = fn()();
+console.log(b);
+</script>	
+</body>
+</html>

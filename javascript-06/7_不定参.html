@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+/* 计算商品总价格 */
+function fn(){
+	var nub = "";
+	for(var i = 0; i < arguments.length; i++){
+			nub += arguments[i];	
+	}
+	console.log(nub);
+}	
+fn("a","b","c","b");
+/*
+arguments 不定参(可变参)
+	实参的个数不固定，不确定的时候
+	arguments是函数实参的集合、类数组
+
+类数组
+		和数组有一些相同的特性，不具备数组的全部的特性
+		相同特性：
+			结构相同 []
+			具有length属性 
+			使用下标获取
+		不相同特性：
+			类数组没有数组的方法
+
+*/
+</script>	
+</body>
+</html>

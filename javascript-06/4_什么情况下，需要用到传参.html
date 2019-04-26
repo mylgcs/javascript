@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body {
+			font: 20px/40px "宋体";
+			text-align: center; 
+		}
+		#navs a {
+			color: blue;
+		}
+		#navs .active {
+			color: red;
+		}
+		#navs2 a {
+			color: yellow;
+		}
+		#navs2 .active {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+<nav id="navs">
+	<a href="javascript:;" class="active">选项1</a>
+	<a href="javascript:;">选项2</a>
+	<a href="javascript:;">选项3</a>
+</nav>
+<nav id="navs2">
+	<a href="javascript:;" class="active">选项1</a>
+	<a href="javascript:;">选项2</a>
+	<a href="javascript:;">选项3</a>
+</nav>
+<script type="text/javascript">
+fn("#navs");
+fn("#navs2");
+/*
+	代码合并，封装
+*/
+function fn(id){
+	console.log(id);
+	var navs = document.querySelector(id);
+	var navsA = navs.querySelectorAll('a');
+	for(var i = 0; i < navsA.length; i++){
+		navsA[i].onclick = function(){
+			for(var i = 0; i < navsA.length; i++){
+				navsA[i].className = "";
+			}
+			this.className = "active";
+		};
+	}
+}
+</script>	
+</body>
+</html>

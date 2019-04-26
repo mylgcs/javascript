@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+function [函数名]([参数1,参数2,。。。。]){
+	// 函数体 代码块
+	[return 值]
+}
+*/
+/*
+	1. 函数声明
+		function 函数名(){}
+	2. 函数表达式
+		var 变量名 = function [函数名](){}
+
+*/
+function fn1 (){
+	console.log(1);
+}
+var fn2 = function(){
+	console.log(2);
+}
+fn1();
+fn2();
+
+/*
+	调用:
+		函数名() 直接调用函数(非事件调用)
+		el.onclick = 函数名; 事件调用
+*/
+
+/*
+	el.onclick = function(){}  //匿名函数
+*/
+</script>	
+</body>
+</html>
