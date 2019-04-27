@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+function fn(){
+	var a = 0;
+	function fn2(){
+		alert(a);
+	}
+	fn2();
+}	
+fn();
+/*
+	作用域链是一种查找规则
+	当我们调用一条数据时，会现在本作用域去查找这条数据，如果在本作用域找不到，就向上，去父作用域查找，一致到全局作用域,如果还是找不到就报错
+
+	作用域：一条数据起作用的范围
+*/
+</script>	
+</body>
+</html>

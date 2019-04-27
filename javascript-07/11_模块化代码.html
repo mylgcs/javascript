@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<input type="button" value="按钮0">
+<input type="button" value="按钮1">
+<input type="button" value="按钮2">
+<script type="text/javascript">
+(function(){
+	var btns = document.querySelectorAll('input');
+	for(var i = 0; i < btns.length; i++){
+		(function(nub){
+			btns[nub].onclick = function(){
+				alert(nub);
+			}
+		})(i)
+	}
+})();
+</script>	
+</body>
+</html>
