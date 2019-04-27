@@ -1,1 +1,1 @@
-#javascript 基础入门 闭包丶开启定时器丶停止定时器丶定时器中的this的使用
+#javascript 基础入门 闭包
