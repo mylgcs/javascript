@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+#menu {
+	display: none;
+	width: 100px;
+	border: 1px solid #000;
+}	
+</style>
+</head>
+<body>
+<button id="btn" type="button">下拉菜单</button>
+<ul id="menu">
+	<li>选项一</li>
+	<li>选项二</li>
+	<li>选项三</li>
+</ul>	
+<script type="text/javascript">
+(function(){
+	var btn = document.querySelector('#btn');
+	var menu = document.querySelector('#menu');
+	var timer = 0;
+	btn.onmouseover = function(){
+		clearTimeout(timer);
+		menu.style.display = "block";
+	};
+	btn.onmouseout = function(){
+		timer = setTimeout(function(){
+			menu.style.display = "none";
+		},500);
+	};
+	menu.onmouseover = function(){
+		clearTimeout(timer);
+		menu.style.display = "block";
+	};
+	menu.onmouseout = function(){
+		timer = setTimeout(function(){
+			menu.style.display = "none";
+		},500);
+	};
+})();	
+</script>
+</body>
+</html>
