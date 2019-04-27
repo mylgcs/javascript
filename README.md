@@ -1,1 +1,1 @@
-#javascript 基础入门 闭包
+#javascript 基础入门
