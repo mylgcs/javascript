@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        ul,li{margin:0;padding:0;}
+        ul{list-style: none;}
+        a{text-decoration: none;color:#000;}
+        .oDiv{width:40%;margin:20px auto;line-height:24px;font-family: '宋体';font-size: 14px;background:#3333FF;padding:8px 10px;color:white;border-radius: 3px;position: relative;}
+        .oDiv:after{content:'';display: block;clear: both;}
+        .bigUl{float: left;}
+        .bigLi{float: left;padding:0 4px;border-right: solid 1px #acdef3;position: relative;}
+        .bigLi:last-child{border-right:solid 1px #3333FF;}
+        .bigLi a,.moreLink{color:white;display:block;line-height: 24px;padding:0 13px;border-radius: 5px;}
+        .bigLi a:hover,.moreLink:hover{background:rgba(255,255,255,0.3);}
+        .moreLink{float: right;}
+        .smDiv{border:1px solid #acdef3;font:12px '微软雅黑';padding:5px 20px;border-radius:3px;position: absolute;top:50px;color:#0000FF;left:0px;transition:all 0.3s ease-in-out;z-index:-1;transform:translateY(-38px);opacity:0;filter:alpha(opacity=0);display:none;}
+        .smDiv span{position: absolute;top:-16px;left:50%;width:0;height:0;border:8px solid #acdef3;border-color:transparent transparent #acdef3 transparent;}
+        .smDiv em{position: absolute;top:-15px;left:50%;width:0;height:0;border:8px solid #acdef3;border-color:transparent transparent white transparent;}
+        .smUl:after{content:'';display: block;clear: both;}
+        .smUl li{float: left;padding:0 8px;border-right: 1px solid #acdef3;transform:scale(0);transition:all 0.3s ease-in-out;cursor:pointer;}
+    </style>
+</head>
+<body>
+    <div class="oDiv">
+        <ul class="bigUl">
+            <li class="bigLi"><a href="#">首页</a></li>
+            <li class="bigLi"><a href="#">关于我们</a></li>
+            <li class="bigLi"><a href="#">作品</a></li>
+            <li class="bigLi"><a href="#">博客</a></li>
+        </ul>
+        <a href="#" class="moreLink">》更多</a>
+        <div class="smDiv"><ul class="smUl"></ul><span></span><em></em></div>
+    </div>
+</body>
+<script>
+    (function () {
+        let arr = [
+            ['最近更新','活动','报名试听','读者反馈'],
+            ['妙味讲师','培训方式','培训理念','联系我们'],
+            ['班固','珍爱网','留学e网','eMall'],
+            ['JS教程','弹出层效果','3D球面标签云','windows计算器']];
+    })()
+</script>
+</html>

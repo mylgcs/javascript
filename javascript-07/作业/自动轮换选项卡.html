@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 432px;
+            height: 180px;
+            border: 1px solid #b7dff1;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        span {
+            display: block;
+            width: 120px;
+            height: 45px;
+            font: 20px/45px "微软雅黑";
+            color: #FFFFFF;
+            background: #74d8ca;
+            text-align: center;
+            float: left;
+            margin-right: 1px;
+        }
+        img {
+            width: 282px;
+            height: 134px;
+        }
+        #fr {
+            width: 150px;
+            height: 135px;
+            float: right;
+        }
+        li {
+            width: 100%;
+            height: 44px;
+            list-style: none;
+            text-align: center;
+            font: 20px/45px "微软雅黑";
+            color: #FFFFFF;
+            background: #ff9da6;
+            border-bottom: 1px solid #fff;
+        }
+        .bg1 {
+            background: #00aa90;
+            color: #333333;
+        }
+
+        .bg2 {
+            background: #ff5a93;
+            color: #666666;
+
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <span>菜单1</span>
+    <span>菜单2</span>
+    <img src="img/img01.jpg" />
+    <div id="fr">
+        <li>图片1</li>
+        <li>图片2</li>
+        <li>图片3</li>
+    </div>
+</div>
+</body>
+    <script type="text/javascript">
+        (function () {
+            let span1=document.querySelectorAll('span')
+            let list=document.querySelectorAll('li')
+            let img1=document.querySelector('img')
+            let arrUrl = ["img/img01.jpg", "img/img02.jpg", "img/img03.jpg","img/img01.jpg", "img/img02.jpg", "img/img03.jpg"];
+            let nub=0;
+            let timer = null;
+
+            ///////////////////////////////////////
+            setTimeout(autoPlay, 1000);
+            tab();
+
+            function autoPlay() {
+                timer = setInterval(function() {
+                    nub++;
+                    nub %= arrUrl.length;
+                    tab();
+                }, 2000)
+            }
+
+            //////////////////////////////////////
+
+
+            function tab() {
+                nub < 3 ? change('bg1','',nub) : change('','bg1',nub-3);
+                img1.src = arrUrl[nub];
+            }
+            function change(a,n,x){
+                span1[0].className = a;
+                span1[1].className = n;
+                for(let i = 0; i < list.length; i++) {
+                    list[i].className = '';
+                }
+                list[x].className = 'bg2';
+            }
+        })()
+    </script>
+</html>

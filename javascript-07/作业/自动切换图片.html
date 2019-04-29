@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .wrap{
+            width: 500px;
+            height: 300px;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .wrap p{
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            width: 500px;
+            height: 30px;
+            background-color: rgba(000 ,000, 000, .3);
+            left: 0;
+            top: 0;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+        .wrap img{
+            width: 100%;
+            height: 100%;
+        }
+        .circle{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+            background-color: rgba(000 ,000, 000, .7);
+            text-align: center;
+            line-height: 30px;
+        }
+        .circle span{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .circle .active{
+            background: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <p></p>
+        <img src="" alt="" />
+        <div class="circle">
+        </div>
+    </div>
+</body>
+<script>
+    (function () {
+        let wrap = document.querySelector('.wrap');
+        let info = wrap.querySelector('p');
+        let img1 = wrap.querySelector('img');
+        let circle = document.querySelector('.circle')
+        const span1 = circle.getElementsByTagName('span');
+        let arrImg = ['img/img01.jpg','img/img02.jpg','img/img03.jpg']
+        let nub=0;
+        /////////////////////////////////////////////////////////
+
+        let  timer = null;
+        function autoPlay() {
+            timer = setInterval(function () {
+                nub ++
+                nub %= arrImg.length
+                fnTab()
+            },2000)
+        }
+        autoPlay()
+
+        wrap.onmouseover = function () {
+            clearInterval(timer)
+        }
+
+        wrap.onmouseout = autoPlay ;
+
+        //////////////////////////////////////////////////////////////
+        for ( let i = 0; i < arrImg.length; i++ ){
+            circle.innerHTML += "<span></span>"
+        }
+        //初始化
+        function fnTab(){
+            img1.src = arrImg[nub];
+            info.innerHTML = 1+nub+' / '+arrImg.length;
+            for( let i=0; i<span1.length; i++ ){
+                span1[i].className = '';
+            }
+            span1[nub].className = 'active';
+        }
+        fnTab();
+        for( let i=0; i<span1.length; i++ ){
+            span1[i].index = i;			// 索引值
+            span1[i].onclick = function (){
+                nub = this.index;
+                fnTab();
+            };
+        }
+    })()
+</script>
+</html>
