@@ -2,33 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf3a7096-57c6-406c-8ccb-e913400015c4" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/123456789.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/10_无缝幻灯片制作.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/10_无缝幻灯片制作_上一张下一张.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/10_无缝幻灯片制作_关联.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/11_无缝幻灯片制作_精简.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/12_无缝幻灯片制作_精简.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/1_定时器.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/2_定时器管理.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/3_动画.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/4_过界处理.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/5_广告展开.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/6_mTween.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/7_mTween.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/8_mTween.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/9_无缝幻灯片制作.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/image/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/image/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/image/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/image/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/image/btn_next.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/image/btn_prev.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/img.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javascript-08/mTween.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/javascript上.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,7 +17,20 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="25">
+                <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,7 +43,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="javascript-08" />
       </map>
     </option>
     <excluded-from-favorite>
@@ -80,12 +70,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/../Desktop/JavaScript基础部分/JS8-函数返回值、定时器基础课件/10-图片自动切换实例.html" />
         <option value="$PROJECT_DIR$/javascript-07/作业/自动切换图片.html" />
         <option value="$PROJECT_DIR$/javascript-07/作业/自动轮换选项卡.html" />
         <option value="$PROJECT_DIR$/../Desktop/testTwo.html" />
         <option value="$PROJECT_DIR$/javascript-07/作业/延迟消失菜单.html" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -105,13 +95,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="123456789" type="b2602c69:ProjectViewProjectNode" />
-              <item name="123456789" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="123456789" type="b2602c69:ProjectViewProjectNode" />
-              <item name="123456789" type="462c0819:PsiDirectoryNode" />
-              <item name="javascript-08" type="462c0819:PsiDirectoryNode" />
+              <item name="javascript上" type="b2602c69:ProjectViewProjectNode" />
+              <item name="javascript上" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -123,6 +108,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/javascript-08" />
@@ -135,6 +121,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/javascript-08" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -206,7 +193,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17760000" />
+    <option name="totallyTimeSpent" value="17984000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -281,54 +268,34 @@
     <option name="LAST_COMMIT_MESSAGE" value="zuoye" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../Desktop/JavaScript基础部分/JS8-函数返回值、定时器基础课件/10-图片自动切换实例.html" />
+    <entry file="file://$PROJECT_DIR$/javascript-07/作业/自动轮换选项卡.html" />
+    <entry file="file://$PROJECT_DIR$/../Desktop/35843879773056/延时消失的菜单/js/index.js" />
+    <entry file="file://$PROJECT_DIR$/../Desktop/35843879773056/延时消失的菜单/延时消失的菜单.html" />
+    <entry file="file://$PROJECT_DIR$/javascript-07/作业/自动切换图片.html" />
+    <entry file="file://$PROJECT_DIR$/../Desktop/testTwo.html" />
+    <entry file="file://$PROJECT_DIR$/javascript-07/作业/延迟消失菜单.html" />
+    <entry file="file://$PROJECT_DIR$/javascript-09/5_无缝幻灯片制作_自动播放.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="172" column="20" lean-forward="true" selection-start-line="172" selection-start-column="20" selection-end-line="172" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript-08/12_无缝幻灯片制作_精简.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor>
-            <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+          <first_editor relative-caret-position="25">
+            <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Desktop/JavaScript基础部分/JS8-函数返回值、定时器基础课件/10-图片自动切换实例.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="45" column="4" lean-forward="true" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript-07/作业/自动轮换选项卡.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="898">
-          <caret line="94" column="13" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Desktop/35843879773056/延时消失的菜单/js/index.js" />
-    <entry file="file://$PROJECT_DIR$/../Desktop/35843879773056/延时消失的菜单/延时消失的菜单.html" />
-    <entry file="file://$PROJECT_DIR$/javascript-07/作业/自动切换图片.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Desktop/testTwo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="24" selection-start-line="24" selection-end-line="85" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#script#0;n#head#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript-07/作业/延迟消失菜单.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2450">
-          <caret line="98" column="7" lean-forward="true" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
         </state>
       </provider>
     </entry>
