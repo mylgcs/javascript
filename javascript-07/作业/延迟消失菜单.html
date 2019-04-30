@@ -34,13 +34,66 @@
         <div class="smDiv"><ul class="smUl"></ul><span></span><em></em></div>
     </div>
 </body>
-<script>
-    (function () {
-        let arr = [
-            ['最近更新','活动','报名试听','读者反馈'],
-            ['妙味讲师','培训方式','培训理念','联系我们'],
-            ['班固','珍爱网','留学e网','eMall'],
-            ['JS教程','弹出层效果','3D球面标签云','windows计算器']];
-    })()
+<script type="text/javascript">
+    var arr = [['最近更新','活动','报名试听','读者反馈'],['妙味讲师','培训方式','培训理念','联系我们'],['班固','珍爱网','留学e网','eMall'],['JS教程','弹出层效果','3D球面标签云','windows计算器']];
+    var timer = null;
+    window.onload = function(){
+        var aLi = document.querySelectorAll('.bigLi');
+        var sDiv = document.querySelector('.smDiv');
+        var sUl = document.querySelector('.smUl');
+        var oSpan = document.querySelector('.smDiv span');
+        var oEm = document.querySelector('.smDiv em');
+        sDiv.ind = 0;
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
+            aLi[i].onmouseover = function(){
+                clearTimeout(aLi[sDiv.ind].timerr);
+                sDiv.ind = this.index;
+                editAttr(sUl,arr[this.index],oSpan,oEm,this.offsetWidth/2);
+                changeAttr(sDiv,{'display':'block','left':this.offsetLeft - 5 + 'px'},{'transform':'translateY(0px)','opacity':1,'filter':'alpha(opacity=100)'},300);
+            }
+            aLi[i].onmouseout = function(){
+                clearTimeout(this.timerr);
+                this.timerr = setTimeout(function(){
+                    changeAttr(sDiv,{'transform':'translateY(-38px)','opacity':0,'filter':'alpha(opacity=0)'},{'display':'block'},300);
+                },200);
+            }
+        };
+        sDiv.onmouseover = function(){
+            clearTimeout(aLi[sDiv.ind].timerr);
+        }
+        sDiv.onmouseout = function(){
+            if(aLi[sDiv.ind].timerr)clearTimeout(aLi[sDiv.ind].timerr);
+            aLi[sDiv.ind].timerr = setTimeout(function(){
+                changeAttr(sDiv,{'transform':'translateY(-38px)','opacity':0,'filter':'alpha(opacity=0)'},{'display':'block'},300);
+            },200);
+        }
+    }
+    function changeAttr(obj,json,jsonp,time){
+        if(timer)clearTimeout(timer);
+        for(let key in json){
+            obj.style[key] = json[key];
+        }
+        timer = setTimeout(function(){
+            for (let key in jsonp) {
+                obj.style[key] = jsonp[key];
+            };
+        },time);
+    }
+    function editAttr(obj,arr,span,em,left){
+        clearTimeout(obj.timer);
+        span.style.left = em.style.left = left + 'px';
+        obj.innerHTML = '';
+        let sAli = obj.getElementsByTagName('li');
+        for (let i = 0; i < arr.length; i++) {
+            obj.innerHTML += '<li>'+arr[i]+'</li>';
+        };
+        obj.timer = setTimeout(function(){
+            for (let i = 0; i < sAli.length; i++) {
+                sAli[i].style.transform = 'scale(1)'
+                sAli[i].style.transition = 'all 0.3s ease-in-out '+(i*(0.3+0.1))+'s';
+            };
+        },10);
+    }
 </script>
 </html>
