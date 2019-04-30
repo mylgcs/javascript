@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+设置年份
+	setFullYear(yearValue[, monthValue[, dayValue]])
+设置月份
+	setMonth(monthValue[, dayValue])
+设置天
+	setDate(dayValue) 
+		如果为 dayValue 指定0，那么日期就会被设置为上个月的最后一天。
+设置小时
+	setHours(hoursValue[, minutesValue[, secondsValue[, msValue]]
+设置分钟
+	setMinutes(minutesValue[, secondsValue[, msValue]])
+设置秒
+	setSeconds(secondsValue[, msValue])
+设置毫秒
+	setMilliseconds(millisecondsValue)
+设置时间戳
+	setTime(timeValue)
+*/
+(function(){
+	var date = new Date();
+	//date.setFullYear(2100,0,1);
+	//date.setMonth(3,1);
+	date.setDate(32);
+	console.log(date);
+	
+})();	
+</script>	
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<p>0000年00月00日00:00:00 星期一</p>	
+<script type="text/javascript">
+(function(){
+	var p = document.querySelector('p');
+	var weekTxt = ["天","一","二","三","四","五","六"];
+	toDate();
+	setInterval(toDate,1000);
+	function toDate(){
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = toDB(date.getMonth() + 1);	
+		var day = toDB(date.getDate());
+		var hours = toDB(date.getHours());
+		var minutes = toDB(date.getMinutes());
+		var seconds = toDB(date.getSeconds());
+		var week = weekTxt[date.getDay()];
+		p.innerHTML = year+'年'+month+'月'+day+'日'+hours+':'+minutes+':'+seconds+' 星期'+week;
+	}
+})();
+function toDB(nub){
+	if(nub < 10){
+		return "0" + nub;
+	}
+	return "" + nub;
+}
+</script>
+</body>
+</html>

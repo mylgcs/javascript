@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+(function(){
+	var date = new Date();
+	var nowMonth = date.getMonth();//获取当前几月份
+	var nextDate = new Date();
+	nextDate.setMonth(nowMonth+1,0);//获取本月份最后一天
+	console.log(nextDate.getDate() - date.getDate());
+
+})();	
+</script>	
+</body>
+</html>

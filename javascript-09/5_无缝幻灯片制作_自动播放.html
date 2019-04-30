@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+#box {
+	position: relative;
+	margin: 30px auto;
+	width: 700px;	
+	overflow: hidden;
+}	
+#pics {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 400%;
+	overflow: hidden;
+}
+#pics li {
+	float: left;
+	width: 700px;
+}
+#pics img {
+	width: 100%;
+}
+#nav {
+	position: absolute;
+	left: 0;
+	bottom: 20px;
+	height: 20px;
+	width: 100%;
+	text-align: center;
+}
+#nav a {
+	display: inline-block;
+	vertical-align: top;
+	width: 20px;
+	height: 20px;
+	background: #fff;
+}
+#nav .active {
+	background: #f60;
+}
+#prev,
+#next {
+	position: absolute;
+	top: 95px;
+	width: 100px;
+	height: 100px;
+}
+#prev {
+	left: 0;
+	background: url('image/btn_prev.png') no-repeat rgba(255, 255, 255, .3);
+}
+#next {
+	right: 0;
+	background: url('image/btn_next.png') no-repeat rgba(255, 255, 255, .3);
+}
+</style>
+<script type="text/javascript" src="mTween.js"></script>
+</head>
+<body>
+<div id="box">
+	<ul id="pics">
+		<li>
+			<a href="#">
+				<img src="image/1.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img src="image/2.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img src="image/3.jpg">
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<img src="image/4.jpg">
+			</a>
+		</li>
+	</ul>
+	<nav id="nav">
+		<a href="javascript:;" class="active"></a>
+		<a href="javascript:;"></a>
+		<a href="javascript:;"></a>
+		<a href="javascript:;"></a>
+	</nav>
+	<a href="javascript:;" id="prev"></a>
+	<a href="javascript:;" id="next"></a>
+</div>
+<script type="text/javascript">
+(function(){
+	/*
+		css(el,attr,val) 方法：
+			只传入两个参数时获取样式的值
+			传入三个参数时，设置该样式的值
+	*/
+	var box = document.querySelector('#box');
+	var pics = document.querySelector('#pics');
+	var navs = document.querySelectorAll('#nav a');
+	var prev = document.querySelector('#prev');
+	var next = document.querySelector('#next');
+	var imgW = css(box,"width");
+	var now = 0;//记录当前显示的是，第几张
+	var picsW = css(pics,"width");
+
+	pics.innerHTML += pics.innerHTML;
+	css(pics,"width",picsW*2);
+	css(pics,"translateX",0);
+	/* 自动播放*/;
+	var timer = setInterval(toNext,1000);
+	box.onmouseover = function(){
+		clearInterval(timer);
+	};
+	box.onmouseout = function(){
+		clearInterval(timer);
+		timer = setInterval(toNext,1000);
+	};
+
+
+	for(var i = 0; i < navs.length; i++){
+		navs[i].index = i;
+		navs[i].onmouseover = function(){
+			now = this.index;
+			toTab();
+		};
+	}
+	prev.onclick = toPrev; 
+	function toPrev(){
+		/*
+			如果现在是第1组的第0张，下次用户再点击上一张时，就没有图了，
+			所以 第1组 第0张是，直接切换到 第二组第0张
+		*/
+		if(now == 0){
+			now = navs.length;//第2组第0张
+			css(pics,"translateX",-now*imgW);
+		}
+		
+		now--;
+		toTab();
+	}
+	next.onclick = toNext;
+	function toNext(){
+		/*
+			如果现在是第2组的第0张，在执行 下一张，多最后还是会有超出的风险
+			所以 第2组 第0张是，直接切换到 第一组第0张
+		*/
+		if(now == navs.length){
+			now = 0;
+			css(pics,"translateX",-now*imgW);
+		}
+		now++;
+		toTab();
+	}
+	/*
+		0 1 2 3 4
+
+		0 1 2 3 0
+		
+		4%4 0
+	*/
+	function toTab(){
+		for(var i = 0; i < navs.length; i++){
+			navs[i].className = "";
+		}
+		navs[now%navs.length].className = "active";
+		mTween({
+			el:pics,
+			attrs: {
+				translateX: -now*imgW
+			},
+			duration: 300,
+			fx: "easeBoth"
+		});
+	}
+})();	
+</script>	
+</body>
+</html>
