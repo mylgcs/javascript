@@ -26,11 +26,12 @@
         //第一种方法
         //box.classList.toggle('show')
         //第二种方法
-        if (box.classList.contains('show')) {
-            box.classList.remove('show')
-        } else {
-            box.classList.add('show')
-        }
+        box.classList.contains('show') ? box.classList.remove('show') : box.classList.add('show')
+        // if (box.classList.contains('show')) {
+        //     box.classList.remove('show')
+        // } else {
+        //     box.classList.add('show')
+        // }
     }
 </script>
 </html>
