@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+var str = "miaov&miaovquxue";
+console.log(str.substring(6)); //从第6位开始截取(包括第6位)
+console.log(str.substring(6,10));//从第6位开始截取,截取到第10位(包括第6位,不包括第10位)
+console.log(str.substring(10,6));//会自动判断大小值，数字大的会被看成结束位置，数字小的会被看成开始位置
+/*
+substring()
+	作用
+	 	截取指定位置之间的字符串
+	语法
+		string string.substring(indexStart [, indexEnd])
+	参数
+		indexStart
+			截取的起始位置
+		indexEnd
+			结束位置，默认为字符串长度
+			不包含结束为止的字符
+	返回值
+		返回截取后的字符串
+*/	
+</script>	
+</body>
+</html>

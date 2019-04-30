@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+body {
+	text-align: center;
+}
+#box {
+	position: relative;
+	margin: 30px auto;
+	padding: 0;
+	list-style: none;
+	width: 600px;
+}	
+#box li {
+	position: absolute;
+	top: 0;
+	width: 150px;
+}
+#box img {
+	width: 150px;
+}
+</style>
+</head>
+<body>
+<button>prev</button>
+<button>next</button>
+<ul id="box">
+	<li>
+		<img src="img/1.jpg" />
+	</li>
+	<li>
+		<img src="img/2.jpg" />
+	</li>
+	<li>
+		<img src="img/3.jpg" />
+	</li>
+	<li>
+		<img src="img/4.jpg" />
+	</li>
+</ul>
+<script type="text/javascript">
+/*
+[0,1,2,3]
+
+arr.push(arr.shift());	
+*/
+function getStyle(el,attr){
+	return getComputedStyle(el)[attr];
+}
+(function(){
+	var lis = document.querySelectorAll('#box li');
+	var btn = document.querySelectorAll('button');
+	var arr = [];
+	for(var i = 0; i < lis.length; i++){
+		lis[i].style.left = i*150 + "px";
+		arr[i] = getStyle(lis[i],"left");//把每个li的初始位置存入数组
+	}
+	console.log(arr);
+	btn[0].onclick = function(){
+		arr.push(arr.shift()); //改变数组顺序
+		//根据新的顺序，修改li的位置
+		console.log(arr);
+		for(var i = 0; i < lis.length; i++){
+			lis[i].style.left = arr[i];
+		}	
+	};
+	btn[1].onclick = function(){
+		arr.unshift(arr.pop());
+		for(var i = 0; i < lis.length; i++){
+			lis[i].style.left = arr[i];
+		}	
+	};
+})();	
+</script>	
+</body>
+</html>

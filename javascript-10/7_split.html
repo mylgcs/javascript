@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+var str = "miaov&miao vquxue";
+
+console.log(str.split());
+console.log(str.split("")); //把字符串的每一位都看成是数组的每一位
+console.log(str.split("ov"));//根据ov来对字符串进行分割("ov" 替换成 ,);
+console.log(str.split("",5));//数组最多只留5位
+
+/*
+split()
+	作用
+	 	通过一个指定的字符串把原字符串分割成一个数组
+	语法
+		array string.split([separator] [, limit])
+	参数
+		separator
+			分割符
+		limit
+			指定最多分割的数量，默认为全部
+	返回值
+		返回一个数组
+		没有分割符，整个字符串将作为一个整体保存到数组中
+
+*/	
+</script>	
+</body>
+</html>

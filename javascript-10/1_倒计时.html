@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input type="text" value="2018">年
+<input type="text" value="5">月
+<input type="text" value="11">日
+<input type="text" value="00">时
+<input type="text" value="00">分
+<input type="text" value="00">秒
+<input type="button" value="开始计时">
+<p>距离0000年00月00日00时00分00秒还剩下0小时00分钟 00秒</p>
+<script type="text/javascript">
+(function(){
+	var txt = document.querySelectorAll('input[type="text"]');
+	var btn = document.querySelector('input[type="button"]');
+	var p	 = document.querySelector('p');
+	var timer = 0;
+	btn.onclick = function(){
+		var targetYear = parseInt(txt[0].value);
+		var targetMonth = parseInt(txt[1].value - 1);
+		var targetDate = parseInt(txt[2].value);
+		var targetHours = parseInt(txt[3].value);
+		var targetMinutes = parseInt(txt[4].value);
+		var targetSeconds = parseInt(txt[5].value);
+		var targetTime = new Date(targetYear,targetMonth,targetDate,targetHours,targetMinutes,targetSeconds).getTime();
+		timer = setInterval(toTime,20);
+		toTime();
+		function toTime(){
+			var nowTime = new Date().getTime();
+			var disTime = targetTime - nowTime;
+			if(disTime <= 0){
+				alert("时间已到");
+				clearInterval(timer);	
+			}
+			var hours = parseInt(disTime/3600000);
+			var minutes = parseInt((disTime%3600000)/60000);
+			var seconds = parseInt((disTime%60000)/1000);
+			var milliseconds = disTime%1000;
+			p.innerHTML = '距离'+targetYear+'年'+targetMonth+'月'+targetDate+'日'+targetHours+'时'+targetHours+'分'+targetSeconds+'秒还剩下'+hours+'小时'+minutes+'分钟'+seconds+'秒'+milliseconds;
+		};
+		
+	};
+})();	
+/*
+	1小时 = 3600000
+	1分钟 = 60000
+	1秒钟 = 1000
+*/
+</script>	
+</body>
+</html>
