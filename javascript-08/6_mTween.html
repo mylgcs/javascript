@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script type="text/javascript" src="mTween.js"></script>
+<style type="text/css">
+	#box {
+		position: absolute;
+		left: 0;
+		top: 100px;
+		width: 100px;
+		height: 100px;
+		background: red;
+	}
+</style>
+</head>
+<body>
+<input type="button" value="动画" id="btn">
+<div id="box"></div>
+<script type="text/javascript">
+/*
+	mTween(props)的使用
+	mTween 一个机遇 tween 算法的运动框架，专门用来处理各种运动
+	props 动画相关的配置参数
+	props: {
+		el: 动画元素,
+		duration: 动画持续时间(ms),
+		attrs: {
+			样式1：目标点,
+			样式2：目标点
+		},
+		fx: "动画形式"
+	}
+	attrs: 
+	 1. 只能对数值类的样式进行动画
+	 2. transform 相关样式，只能向下边一样，一个一个写
+	  	'rotate',
+		'rotateX',
+		'rotateY',
+		'skewX',
+		'skewY',
+		'translateX',
+		'translateY',
+		'translateZ',
+		'scale',
+		'scaleX',
+		'scaleY'
+	3. transform 相关的设置，在使用的时候，得先调用 css 方法，设置初始值
+	4. oapcity 取值 0 - 1
+
+fx(动画形式): linear(匀速运动) ,easeIn(匀加速运动),easeOut(匀减速运动),easeBoth(先加速后减速),easeInStrong(二次方加速运动),easeOutStrong(二次方减速运动),easeBothStrong(二次方先加速后减速),elasticIn(在动画开始时弹性)	,elasticOut(在动画结束时弹性),elasticBoth(在动画开始和结束时弹性),	回弹 backIn，backOut, backBoth, 碰撞弹性 bounceIn,bounceOut,bounceBoth
+
+*/	
+(function(){
+	var btn = document.querySelector('#btn');
+	var box = document.querySelector('#box');
+	css(box, "rotate", 0)
+	btn.onclick = function(){
+		mTween({
+			el: box,
+			duration: 1000,
+			attrs: {
+				left: 300,
+				top: 400,
+				opacity: .5		
+			},
+			fx: "bounceOut"
+		});
+	};
+})();
+</script>
+</body>
+</html>
