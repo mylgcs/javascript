@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box {
+			position: relative;
+			width: 100px;
+			height: 300px;
+			border: 1px solid #000;
+			overflow: hidden;
+		}	
+		#list {
+			position: absolute;
+			left: 0;
+			top: 0;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			width: 100px;
+		}
+		#list li {
+			width: 98px;
+			height: 98px;
+			border: 1px solid #fff;
+			font: 50px/98px "宋体";
+			color:  #fff;
+			background: #000;
+		}
+	</style>
+</head>
+<body>
+<button>向上移动</button>
+<div id="box">
+	<ul id="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+	</ul>
+</div>
+<button>向下移动</button>
+<script type="text/javascript">
+/*
+	onmousedown 鼠标按下
+	onmouseup 鼠标抬起
+*/	
+function getStyle(el,attr){
+	return parseFloat(getComputedStyle(el)[attr]);
+}
+(function(){
+	var btn = document.querySelectorAll('button');
+	var list = document.querySelector('#list');
+	var box = document.querySelector('#box');
+	var timer = 0;
+	var maxT = getStyle(box,"height") - getStyle(list,"height");
+	console.log(maxT);
+	btn[0].onmousedown = function(){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			var t = getStyle(list,"top"); - 1;
+			t = t < maxT?maxT:t;
+			list.style.top = t + "px";
+		},20);
+	};
+	btn[0].onmouseup = btn[1].onmouseup = function(){
+		clearInterval(timer);
+	};
+	btn[1].onmousedown = function(){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			var t = getStyle(list,"top") + 1;
+			t =  t>0?0:t;
+			// if(t>0){
+			// 	t = 0;
+			// } else {
+			// 	t = t;
+			// }
+			list.style.top = t + "px";
+		},20);
+	};
+})();
+</script>
+</body>
+</html>
