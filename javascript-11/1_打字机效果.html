@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	.wrap {
+		margin: 30px auto;
+		width: 500px;
+	}	
+	#text {
+		float: left;
+		box-sizing: border-box;
+		width: 200px;
+		height: 300px;
+		border: 1px solid #000;
+	}
+	.info {
+		float: left;
+		display: flex;
+		width: 100px;
+		height: 300px;
+	}
+	.inner {
+		margin: auto;
+		text-align: center;
+	}
+	#div {
+		float: left;
+		box-sizing: border-box;
+		width: 200px;
+		height: 300px;
+		border: 1px solid #000;
+		word-break: break-all;
+	}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<textarea id="text"></textarea>	
+	<div class="info">
+		<div class="inner">
+			<button id="btn">移动至右侧</button>
+			<p id="page">0/0</p>
+		</div>
+	</div>
+	<div id="div"></div>
+</div>
+<script type="text/javascript">
+(function(){
+	var btn = document.querySelector('#btn');
+	var text = document.querySelector('#text');
+	var div = document.querySelector('#div');
+	var page = document.querySelector('#page');
+	var timer = 0;
+	btn.onclick = function(){
+		var val = text.value.trim();
+		var nub = 0;//当前移动了多少个
+		// if(val.trim() == ""){
+		// 	alert("请输入实际内容")
+		// 	return ;
+		// }
+		if(!val){
+			alert("请输入实际内容")
+			return ;
+		}
+		if(timer){ //如果定时器开启了，就不在开启新的
+			return ;
+		}
+		timer = setInterval(function(){
+			nub++;
+			//substr(从第几开始截取,截取到第几位)
+			var str2 = val.substr(0,nub);
+			var str3 = val.substr(nub);
+			text.value = str3;
+			div.innerHTML = str2;			
+			page.innerHTML = nub+"/"+val.length;
+			if(nub == val.length){
+				clearInterval(timer);
+				timer = 0;
+			}
+		},50);
+	};
+})();	
+/*
+abcdefg
+
+a bcdefg
+
+ab cdefg
+
+abc defg   
+
+
+*/
+</script>
+</body>
+</html>

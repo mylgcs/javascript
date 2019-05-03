@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<ul class="list">
+	<li>a</li>
+	<li>b</li>
+	<li>c</li>
+	<li>d</li>
+</ul>	
+<script type="text/javascript">
+(function(){
+	var lis = document.querySelectorAll('.list li');
+	lis.forEach(function(li,index){
+		console.log(li,index);
+	});
+	/*
+		暂时只有通过 querySelectorAll 获取到的元素可以使用 forEach
+	*/
+})();	
+</script>
+</body>
+</html>

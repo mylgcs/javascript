@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+splice()
+	作用
+		用新元素替换旧元素，以此修改数组的内容	
+	语法
+		array	array.splice(start, deleteCount[, item1[, item2[, ...]]])	
+	参数
+		start		起始位置
+    		deleteCount	删除长度
+		item		添加的内容
+	返回值
+		由被删除的元素组成的一个数组
+*/
+
+var arr = [1,2,3,4,5];
+//替换指定位置
+// console.log(arr.splice(2,1,"c","d"));
+// console.log(arr);
+
+// 删除指定位置
+// arr.splice(2,2);
+// //arr.splice(2,1);
+// console.log(arr);
+
+//从指定位 添加
+arr.splice(2,0,"c","d");
+console.log(arr);
+</script>	
+</body>
+</html>

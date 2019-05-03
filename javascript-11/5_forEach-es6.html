@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+	DOM
+	BOM
+	ECMAScript 5.1
+	forEach()
+	作用
+		让数组的每一项都执行一次给定的函数
+	语法
+		array.forEach(callback[, thisArg])
+	参数
+		callback	在数组每一项上执行的函数，接收三个	
+			callback参数：
+    			currentValue	当前项的值。
+   				index	当前项的索引（或下标）。
+  				array	数组本身。
+
+		thisArg	可选参数。
+			用来当作callback 函数内this的值 
+	返回值
+		undefined
+*/	
+var arr = ["a","b","c","d","e"];
+arr.forEach(function(a,b,c){
+	console.log(a,b,c);
+	console.log(this);
+},arr);
+/*
+	a: item 数组中的每一项 arr[i]
+	b: index 数组中的每一项对应的下标 i
+	c: arr
+*/
+</script>	
+</body>
+</html>

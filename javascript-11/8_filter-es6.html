@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script type="text/javascript">
+/*
+filter()
+	作用
+		根据回调函数的返回值过滤数组中的项，放在新数组中
+语法
+		array array.filter(callback[, thisArg])
+	参数
+		callback	在数组每一项上执行的函数，接收三个	
+			callback参数：
+    				currentValue	当前项的值。
+   				index	当前项的索引（或下标）。
+  				array	数组本身。
+		thisArg	可选参数		
+			用来当作callback 函数内this的值。 
+	返回值
+		返回过滤后的新数组
+			如果返回值为true，则放入新数组中；
+			如果返回值为false，则忽略
+
+*/ 
+var arr = [1,2,3,4,5,6,7,8];
+//过滤掉数组中的奇数
+
+
+// var arr2 = arr.filter(function(item){
+// 	if(item%2 == 1){
+// 		return false;
+// 	} else {
+// 		return true;
+// 	}
+// });
+var arr2 = arr.filter(function(item){
+	return !(item%2);
+});
+console.log(arr2);
+
+
+</script>	
+</body>
+</html>
