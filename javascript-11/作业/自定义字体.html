@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义字体</title>
+    <style type="text/css">
+        #box{
+            width: 500px;
+            height: 500px;
+            padding: 30px;
+            background: #999;
+            margin: 20px auto;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        p{
+            margin: 0;
+        }
+        textarea{
+            outline: none;
+            resize: none;
+            border: none;
+        }
+        #talk,#text{
+            width: 480px;
+            height: 240px;
+            padding: 10px;
+            background: #fff;
+            margin-bottom: 10px;
+            overflow: auto;
+        }
+        #text{
+            height: 100px;
+        }
+        #font{
+            height: 50px;
+            line-height: 50px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        #font a{
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 0 5px;
+            margin: 0 10px;
+        }
+        #font a:hover{
+            background: #aaa;
+        }
+        #font ul{
+            background: #fff;
+            border: 2px solid #ffcccc;
+            padding: 10px 50px 10px 10px;
+            height: 240px;
+            overflow: auto;
+            position: absolute;
+            bottom: 50px;
+            left: 10px;
+            display: none;
+        }
+        #font li{
+            height: 60px;
+        }
+        #font li:hover{
+            background: #bbb;
+        }
+        #font li span{
+            float: left;
+            line-height: 26px;
+            text-align: center;
+        }
+        #font li p{
+            text-align: center;
+        }
+        input{
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+        }
+        #talk .p1{
+            height: 30px;
+        }
+        #talk .p2{
+            height: 55px;
+        }
+        #talk span{
+            float: left;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .love{
+            width: 26px;
+            height: 40px;
+            background: url(imgQQ/qq2.png) no-repeat center 20px;
+        }
+        .cool{
+            width: 26px;
+            height: 48px;
+            background: url(imgQQ/qq4.png) no-repeat center 24px;
+        }
+        .sun{
+            width: 26px;
+            height: 48px;
+            background: url(imgQQ/qq3.png) no-repeat center 24px;
+        }
+        .shy{
+            width: 26px;
+            height: 48px;
+            background: url(imgQQ/qq6.png) no-repeat center 24px;
+        }
+        .ba{
+            width: 30px;
+            height: 55px;
+            background: url(imgQQ/ba2.gif) no-repeat center 6px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+    <div id="talk">
+        <!-- <p>
+            <span>这</span>
+            <span>是</span>
+            <span>气</span>
+            <span>球</span>
+            <span>字</span>
+            <span>体</span>
+        </p> -->
+    </div>
+    <div id="font">
+        <ul>
+            <li>
+                <span class="love">这</span>
+                <span class="love">是</span>
+                <span class="love">爱</span>
+                <span class="love">心</span>
+                <span class="love">字</span>
+                <span class="love">体</span>
+                <span class="love">~</span>
+                <span class="love">~</span>
+            </li>
+            <li>
+                <span class="cool">这</span>
+                <span class="cool">是</span>
+                <span class="cool">酷</span>
+                <span class="cool">酷</span>
+                <span class="cool">字</span>
+                <span class="cool">体</span>
+                <span class="cool">~</span>
+                <span class="cool">~</span>
+            </li>
+            <li>
+                <span class="sun">这</span>
+                <span class="sun">是</span>
+                <span class="sun">太</span>
+                <span class="sun">阳</span>
+                <span class="sun">字</span>
+                <span class="sun">体</span>
+                <span class="sun">~</span>
+                <span class="sun">~</span>
+            </li>
+            <li>
+                <span class="shy">这</span>
+                <span class="shy">是</span>
+                <span class="shy">害</span>
+                <span class="shy">羞</span>
+                <span class="shy">字</span>
+                <span class="shy">体</span>
+                <span class="shy">~</span>
+                <span class="shy">~</span>
+            </li>
+            <li>
+                <span class="ba">这</span>
+                <span class="ba">是</span>
+                <span class="ba">气</span>
+                <span class="ba">球</span>
+                <span class="ba">字</span>
+                <span class="ba">体</span>
+                <span class="ba">~</span>
+                <span class="ba">~</span>
+            </li>
+
+            <li>
+                <p>默认字体</p>
+            </li>
+        </ul>
+        <a href="javascript:;">A</a>
+        <span id="span">默认字体</span>
+    </div>
+    <textarea id="text"></textarea>
+    <input type="button" value="发送" id="btn" />
+</div>
+</body>
+<script>
+    var talk = document.getElementById('talk');
+    var font = document.getElementById('font');
+    var oUl = font.getElementsByTagName('ul')[0];
+    var aLi = font.getElementsByTagName('li');      //  font里面的各种字体li集合
+    var oA = font.getElementsByTagName('a')[0];      //  A 点击
+    var span = document.getElementById('span');  //      span显示 确定的字体
+    var text = document.getElementById('text');    //
+    var btn = document.getElementById('btn');    //  btn 发送
+
+    var json = { '爱心字体':'love', '酷酷字体':'cool', '太阳字体':'sun', '害羞字体':'shy', '气球字体':'ba','默认字体':'' };
+    var arr1 = [ '爱心字体','酷酷字体','太阳字体','害羞字体','气球字体','默认字体' ];
+
+    // 初始化
+    var inner = '默认字体';
+    span.innerHTML = inner;
+
+    oA.onclick = function (){       ///  点击 A 显示ul
+        oUl.style.display = 'block';
+    };
+
+
+    for( var i=0;i<aLi.length;i++ ){
+        lifn( aLi[i],i );
+    }
+    function lifn( li,n ){
+        li.index = n;
+        li.onOff = false;
+        aLi[aLi.length-1].onOff = true;   /// 最后一个 默认字体li 是开的
+        li.onclick = function (){
+            for( var i=0;i<aLi.length;i++ ){
+                aLi[i].onOff = false;       ///   每次不论点击哪一个li，都关掉每个li的开关
+            }
+            this.onOff = true;            ///  只点亮当前li
+
+            oUl.style.display = 'none';
+        };
+
+        li.onmouseover = function (){
+            span.innerHTML = arr1[n];
+        };
+
+    }
+    oUl.onmouseout = function (){
+        for( var i=0;i<aLi.length;i++ ){
+            if( aLi[i].onOff ){     ///  鼠标移出的时候，找到点亮的li，，对应arr1[i]
+                inner = arr1[i];
+            }
+        }
+        span.innerHTML = inner;
+    };
+
+    btn.onclick = function (){
+        var arr = text.value.split('');   //  获取输入的文字，，分割成数组arr
+
+        for( var i=0;i<arr.length;i++ ){
+            arr[i] = '<span class="'+ json[inner]+'">'+ arr[i] +'</span>';  /// 给arr里面每一个都添加span
+        }
+        if( !json[inner] ){
+            talk.innerHTML += '<p class="p1">'+ arr.join(''); +'</p>'; ///  如果是默认字体，p的高度30px
+        }else{
+            talk.innerHTML += '<p class="p2">'+ arr.join(''); +'</p>';  /// 如果是其他字体，p的高度是55px
+        }
+
+        text.value = '';
+    };
+    /*
+
+    问题：  talk里面不停的加p标签
+           多了就有滚动条
+           但是发送出去的内容在最下面，需要手动滚动
+           怎么让发送的内容，，一直都是显示最新的，，而且在下面
+
+
+    */
+
+</script>
+</html>

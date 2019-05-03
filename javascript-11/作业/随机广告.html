@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机广告</title>
+    <style type="text/css">
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #box{
+            width: 340px;
+            height: 320px;
+            padding: 10px;
+            margin: 100px auto;
+        }
+        #left{
+            float: left;
+        }
+        #right{
+            float: right;
+        }
+        li{
+            width: 160px;
+            height: 60px;
+            position: relative;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        #box div{
+            width: 160px;
+            height: 180px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        img{
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+    <ul id="left">
+        <li>
+            <div>
+                <img src="img/ad1.gif" />
+                <img src="img/ad2.gif" />
+                <img src="img/ad3.gif" />
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/ad4.gif" />
+                <img src="img/ad5.gif" />
+                <img src="img/ad6.gif" />
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/ad17.gif" />
+                <img src="img/ad18.gif" />
+                <img src="img/ad16.gif" />
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/ad1.gif" />
+                <img src="img/ad11.gif" />
+                <img src="img/ad12.gif" />
+            </div>
+        </li>
+    </ul>
+    <ul id="right">
+        <li>
+            <div>
+                <img src="img/ad11.gif" />
+                <img src="img/ad12.gif" />
+                <img src="img/ad13.gif" />
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/ad16.gif" />
+                <img src="img/ad15.gif" />
+                <img src="img/ad14.gif" />
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/ad16.gif" />
+                <img src="img/ad18.gif" />
+                <img src="img/ad17.gif" />
+            </div>
+        </li>
+        <li>
+            <div>
+                <img src="img/ad4.gif" />
+                <img src="img/ad5.gif" />
+                <img src="img/ad2.gif" />
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+    <script type="text/javascript">
+        (function () {
+            let box = document.querySelector('#box');
+            let divs = box.querySelectorAll('div')
+            let len = divs.length-1;
+            let nub = 0;
+            //初始化
+            for (let i=0;i<divs.length;i++){
+                divs[i].index = -1;//每个div身上放一个 数字-1
+                divs[i].onoff = true;// 每个div身上放一个 开关
+            }
+            //开定时器
+            clearInterval(box.timer)
+            box.timer = setInterval(function () {//  每200毫秒  在0~len 之间随机一个数
+                nub = Math.round(Math.random()*len);
+                console.log(nub);
+                fn(divs[nub])               //  随机数是几  就调用第几个div 动起来
+            },200)
+            function fn(div) {//  div默认top值为0,,,  先是true和 -1  ，走到top:-60，，  -2走到 top:-120
+                doMove( div,'top',10,(div.index)*60,200,function () {
+                    div.onoff ? (div.index)-- :(div.index)++;
+                    if (div.index == 1 || div.index == -3){//  top到达-120，，改false和-1 ，走到top: -60 ，， top:0   改true
+                        div.index = -1;
+                        div.onoff = !div.onoff;
+                    }
+                } )
+            }
+            function doMove(obj, attr, dir, target, time, endFn) {
+                dir = parseInt( getStyle( obj, attr ) ) < target ? dir : -dir;
+
+                clearInterval(obj.timerM);
+                obj.timerM = setInterval(function () {
+                    let speed = parseInt( getStyle(obj,attr))+dir;//  当前的属性值 + 每步数字
+                    if( speed > target && dir > 0 || speed < target && dir < 0 ){
+                        speed = target;
+                    };
+                    obj.style[attr] = speed + 'px';
+                    if( speed == target ){
+                        clearInterval( obj.simerM );
+                        endFn && endFn();
+                    }
+                },time)
+
+            }
+            function getStyle( obj, attr ){
+                return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle( obj )[attr];
+            };
+        })()
+    </script>
+</html>
