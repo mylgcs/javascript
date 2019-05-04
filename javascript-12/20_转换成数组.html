@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<input type="button" value="按钮">
+<input type="button" value="按钮">
+<input type="button" value="按钮">
+<input type="button" value="按钮">
+<script type="text/javascript">
+(function(){
+	let btns = document.getElementsByTagName('input');
+	btns = Array.from(btns);
+	console.log(btns);
+	btns.forEach((item)=>{
+		console.log(item);
+	});
+	/*
+
+		Array.from()
+		用于将类数组和可遍历的对象转为真正的数组
+
+		应用：将获取的元素集合转为数组
+
+	*/
+})();	
+</script>	
+</body>
+</html>

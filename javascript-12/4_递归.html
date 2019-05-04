@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+function fn1(nub){
+	if(nub>0){
+		fn1(nub-1);
+	}
+	console.log(nub);
+}	
+fn1(3);
+/* 
+	递归，函数自己调用自己
+	在使用递归的时候，一定要有结束条件，否则会堆栈溢出
+
+	在js中，碰到函数执行，会先把函数执行完，在执行下边代码
+
+	配到函数，就当与把函数中的所有代码，在这里重新写了一遍
+*/
+/*
+function fn1(3){
+	if(3>0){
+		function fn1(2){
+			if(2>0){
+				function fn1(1){
+					if(1>0){
+						function fn1(0){
+							if(0>0){
+								
+							}
+							console.log(nub); // 0
+						}	
+					}
+					console.log(nub);// 1
+				}	
+			}
+			console.log(nub);//2
+		}	
+	}
+	console.log(nub);//3
+}
+
+
+
+
+
+*/
+
+
+</script>	
+</body>
+</html>

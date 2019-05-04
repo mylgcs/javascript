@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+var arr = [19,20,7,5,13,4,1];
+/*
+	sort 在执行的时候，会依次给回调函数传递两个参数	
+
+*/
+console.log(arr);
+arr.sort(function(nub,nub2){
+	/*
+		在这里，如果返回 > 0, 
+		sort 就交换这两个数字的位置，
+		否则 保持两个数字的位置不动
+	*/
+	console.log(nub,nub2);	
+	return 0;
+});
+
+console.log(arr);
+
+/*
+
+*/	
+</script>	
+</body>
+</html>
