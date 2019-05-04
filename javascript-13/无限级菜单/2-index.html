@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+    html {
+
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        background: url(./image/bg.png) no-repeat;
+        background-size: 100% 100%;
+        overflow: hidden;
+    }
+
+    .logo {
+        display: block;
+        width: 200px;
+        height: 55px;
+        background: url(./image/logo.png) no-repeat;
+        margin: 20px auto;
+    }
+
+    ul {
+        list-style: none;
+        font-size: 22px;
+        color: #8c949c;
+        font-weight: bold;
+    }
+
+    ul li {
+        position: relative;
+        padding-left: 10px;
+    }
+
+    ul li div {
+        height: 98%;
+        width: 1px;
+        border-left: 1px dotted #ccc;
+        position: absolute;
+        left: 14px;
+        top: 18px;
+    }
+    
+    ul li span {
+        display: block;
+        line-height: 32px;
+        padding-left: 15px;
+        background: url(./image/icon.png) no-repeat left 500px;
+    }
+
+    ul li span.add {
+        background-position: 0px -32px;
+    }
+
+    ul li span.line {
+        background-position: 0px 11px;
+    }
+
+    .tree .show {
+        display: block;
+    }
+    
+    ul ul {
+        display: none;
+    }
+
+    .tree {
+        margin-left: 300px;
+    }
+    </style>
+</head>
+
+<body>
+<div class="main">
+    <a href="http://www.miaov.com" class="logo"></a>
+    <div class="tree">
+        <!-- <ul>
+            <li>
+            	<span class="line">第一级菜单</span>
+            	<ul>
+            	    <li>
+            	    	<span class="line">第一级菜单</span>
+            	    </li>
+            	    <li>
+            	    	<span class="add">第一级菜单</span>
+            	    </li>
+            	    <li>
+            	    	<span class="add">第一集菜单</span>
+            	    </li>
+            	</ul>
+            </li>
+            <li>
+            	<span class="add">第一级菜单</span>
+            	<ul>
+            	    <li>
+            	    	<span class="line">第一级菜单</span>
+            	    </li>
+            	    <li>
+            	    	<span class="add">第一级菜单</span>
+            	    </li>
+            	    <li>
+            	    	<span class="add">第一集菜单</span>
+            	    </li>
+            	</ul>
+            </li>
+            <li>
+            	<span class="add">第一集菜单</span>
+            </li>
+        </ul> -->
+    </div>
+</div>
+<script>
+	
+var data = [
+	{
+		title: '音乐人',
+		children: [
+			{
+                title: '周杰伦',
+                children: [
+                    {
+                        title: '发如雪',
+                        children: [
+                            {
+                                title: '周杰伦',
+                                children: [
+                                    {
+                                        title: '发如雪',
+                                        
+                                    }
+                                ]
+                            },
+                            {
+                                title: '王杰'
+                            },
+                            {
+                                title: '周杰伦'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: '周杰伦',
+                children: [
+                    {
+                        title: '发如雪',
+                        children: [
+                            {
+                                title: '周杰伦',
+                                children: [
+                                    {
+                                        title: '发如雪',
+                                        
+                                    }
+                                ]
+                            },
+                            {
+                                title: '王杰'
+                            },
+                            {
+                                title: '周杰伦'
+                            }
+                        ]
+                    }
+                ]
+            },
+    		{
+    			title: '王杰'
+    		},
+    		{
+    			title: '周杰伦'
+    		}
+		]
+	},
+	{
+		title: '电影'
+	},
+	{
+		title: '体育',
+    		children: [
+    			{
+	    			title: '周杰伦',
+	    			children: [
+	    				{
+	    					title: '发如雪',
+	    					
+	    				}
+	    			]
+	    		},
+	    		{
+	    			title: '王杰'
+	    		},
+	    		{
+	    			title: '周杰伦'
+	    		}
+    		]
+	}
+];
+/*
+    生成数据
+*/
+(function(){
+    var tree = document.querySelector('.tree');
+    //console.log(data);
+    function createTree(info){
+        let str = `<ul>${
+            info.map((item)=>{
+                return `<li><span class="${item.children?"add":""}">${item.title}</span>${
+                        item.children?createTree2(item.children):""
+                }</li>`
+            }).join("")
+        }</ul>`;
+        return str;   
+    } 
+    // 生成第二级子菜单
+    function createTree2(info){
+        let str = `<ul>${
+            info.map((item)=>{
+                return `<li><span class="${item.children?"add":""}">${item.title}</span></li>`
+            }).join("")
+        }</ul>`;
+        return str;   
+    } 
+    tree.innerHTML = createTree(data);
+})();
+/* 添加事件 */
+(function(){
+    let tree = document.querySelector('.tree');
+    let lis = tree.querySelectorAll('li');
+    lis.forEach((item)=>{
+        item.onclick = function(){
+            if(this.children.length > 1){
+
+                /* 如果当是展开的就隐藏，否则展开当前*/
+                if(this.children[1].className == "show"){
+                    this.children[1].className = "";
+                    this.children[0].className = "add";
+                } else {
+                    this.children[1].className = "show";
+                    this.children[0].className = "add line";
+                }
+
+
+            }
+        };
+    });
+})()
+
+
+
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+(function(){
+	let obj = {
+		a: 1,
+		b: 2
+	};
+	let obj2 = {
+		c: 3,
+		d: 4
+	};
+	Object.assign(obj,obj2);
+	/*
+		把 obj2 合并 到obj中,
+		返回值是 obj
+	*/
+	console.log(obj,obj2);
+})();	
+</script>	
+</body>
+</html>

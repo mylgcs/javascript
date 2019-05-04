@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+let obj = {
+	a:1,
+	b: 2
+};	
+// delete obj.b; //删除对象上的属性
+obj = Object.defineProperty(obj,"miaov",{
+	configurable: true,
+	enumerable: true,
+	get: function(){
+		console.log("我们对属性的值进行了获取");
+		return "就不告诉你，结果是多少";
+	},
+	set: function(val){
+		console.log("对字符进行了设置",val);
+	}
+});
+//obj.miaov = 0;//当我们对属性的值进行设置的时候，会调用set方法
+
+console.log(obj.miaov);//当我们调用属性的时候，会调用get方法，具体拿到的属性值，我们需要在get方法的return进行定义;
+
+
+
+/*
+
+枚举：列举出对象中的所有属性
+
+Object.defineProperty()
+	直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象
+	语法：Object.defineProperty(obj, prop, descriptor)
+
+ descriptor 数据描述符
+	configurable 是否可被删除 默认为false  true可以删除
+	enumerable  是否可被枚举 默认为false	true 可以枚举
+	value	       属性对应的值 默认为 undefined 
+	writable        是否可被赋值运算符改变值 默认为false true 可以进行修改
+
+ 存取描述符
+	get 
+	     方法返回值被用作属性值 默认为 undefined
+	set	
+	     方法将接受唯一参数，并将该参数的新值分配给该属性 默认undefined。
+
+*/
+</script>	
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+let name = "miaov";
+let a = "age";
+let obj = {
+	name,
+	sayName(){
+		console.log(this.name);
+	},
+	[a]: 40
+}	
+console.log(obj);
+obj.sayName();
+/*
+简洁表示法:
+	变量名和属性名相同，可直接写入变量名
+	函数可省略function关键字
+*/
+</script>	
+</body>
+</html>

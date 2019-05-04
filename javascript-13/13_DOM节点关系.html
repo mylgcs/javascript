@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<ul id="miaov">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+<script type="text/javascript">
+/*
+node.parentNode --- 获取父元素
+node.children --- 获取所有子元素节点
+node.previousElementSibling	--- 获取上一个兄弟元素
+node.nextElementSibling --- 获取下一个兄弟元素
+node.firstElementChild --- 获取第一个子元素
+node.lastElementChild --- 获取最后一个子元素
+
+node.childNodes	--- 获取所有子节点
+node.previousSibling  --- 获取上一个兄弟节点
+node.nextSibling --- 获取下一个兄弟节点
+node.firstChild  --- 获取元素中第一个子节点
+node.lastChild --- 获取元素中最后一个子节点
+*/	
+(function(){
+	var ul = document.querySelector('ul');
+	var first = ul.firstElementChild;
+	var last = ul.lastElementChild;
+	var next = first.nextElementSibling; 
+	var prev = last.previousElementSibling;
+	console.log(first,last);
+	console.log(next,prev);
+
+})();
+</script>	
+</body>
+</html>

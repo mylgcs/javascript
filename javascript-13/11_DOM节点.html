@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<ul id="miaov">
+	<!-- 这是一个注释 -->
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+<script type="text/javascript">
+/*
+	元素节点：每个 HTML元素	
+	属性节点：HTML元素的属性
+	文本节点：HTML元素内的文本	
+	注释节点：注释 <!---->
+	文档节点：整个文档document
+
+节点类型：nodeType
+	元素节点：1	
+	属性节点：2
+	文本节点：3	
+	注释节点：8
+	文档节点：9
+节点名称 --- nodeName
+	元素节点：与标签名相同	
+	属性节点：是属性的名称
+	文本节点：为#text	
+	注释节点：为#comment
+	文档节点：为#document
+*/
+(function(){
+	let ul = document.querySelector('ul');
+	let nodes = Array.from(ul.childNodes);
+	/* childNodes 子节点*/
+	nodes.forEach((item)=>{
+		console.log(item.nodeType,item.nodeName);
+	});
+
+})();	
+</script>	
+</body>
+</html>
