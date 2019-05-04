@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消除表情小游戏</title>
+    <style>
+        #box{width:1010px;height:640px;position:relative;
+            margin:50px auto 50px;border:1px #DDB6C0 solid;}
+        #box h2{position:absolute;left:420px;top:5px;}
+        #box .p1{position:absolute;left:208px;top:44px;}
+        #box .inp1{position:absolute;left:480px;top:90px;}
+        #seorec{width:80px;height:100px;position:absolute;
+            left:19px;top:120px;border:1px #3302F9 solid;
+            border-right:none;background:#E6FB10;}
+        #con{width:900px;height:500px;position:absolute;
+            left:100px;top:120px;border:1px  #3302F9 solid;overflow:hidden;user-select: none;}
+        #con span{position:absolute;top:-24px;left:100px;}
+        #conn{width:300px;height:100px;position:absolute;left:310px;top:150px;background:#BCBCBC;border:1px #5F5F5F solid;display:none;}
+        #conn .p2{margin-left:15px;}
+        #conn input{background:#D0D0D0;border:1px;margin-left:70px;cursor:pointer;}
+    </style>
+</head>
+<body>
+    <div id="box">
+    <h2>看你的鼠标有多块</h2>
+    <p class="p1">游戏说明：点击“开始游戏”，随机掉下QQ表情，点中它，千万别让它掉下去！！</p>
+    <input class="inp1" type="button" value="游戏开始" />
+    <div id="seorec">
+        <p>得分:<span>0</span>分</p>
+        <p>失分:<span>0</span>分</p>
+    </div>
+    <div id="con">
+        <span><img src="" /></span>
+        <div id="conn">
+            <p class="p2">游戏失分等于十分,失败，是否重来？</p>
+            <input type="button" value="是" />
+            <input type="button" value="否" />
+        </div>
+    </div>
+</div>
+</body>
+    <script>
+    window.onload = function(){
+        var olnp = document.getElementsByTagName('input')[0];
+        var ocon = document.getElementById('con');
+        var oseo = document.getElementById('seorec');
+        var aspan1 = oseo.getElementsByTagName('span');
+        var aspan2 = ocon.getElementsByTagName('span')[0];
+        var oimg = ocon.getElementsByTagName('img')[0];
+        var oconn = document.getElementById('conn');
+        var alnp1 = oconn.getElementsByTagName('input');
+
+        var json = {'url':['img/1.png','img/2.png','img/3.png','img/4.png','img/5.png','img/6.png','img/7.png','img/8.png','img/9.png','img/10.png','img/11.png'],
+            'url1':['img/qq.png'],
+            'aleft':['20px','100px','170px','250px','330px','400px','480px','560px','640px','720px','810px',]
+        };
+        var arr = [];
+        var speen = 1;
+        var onoff = true;
+
+
+        for(var i=0;i<json.url.length;i++){
+            arr.push(i);
+        }
+
+        function fn1(){
+            oimg.src = json['url'][arr[0]];
+            aspan2.style.top = -24 + 'px';
+            aspan2.style.left = json['aleft'][arr[0]];
+
+        }
+
+        alnp1[0].onclick = function(){
+            aspan1[0].innerHTML = 0;
+            aspan1[1].innerHTML = 0;
+            oconn.style.display = 'none';
+            fn2();
+        };
+        alnp1[1].onclick = function(){
+            oconn.style.display = 'none';
+            olnp.value = '重新开始';
+            //alert('总得分'+aspan1[0].innerHTML);
+        }
+
+        oimg.src = json['url'][arr[5]];
+        olnp.onclick = fn2;
+        function fn2(){
+            if(onoff){
+                onoff = false;
+                if(olnp.value = '重新开始'){
+                    aspan1[0].innerHTML = 0;
+                    aspan1[1].innerHTML = 0;
+                }
+                speen = 1;
+                var n1 = 0;
+                var n2 = 0;
+                clearInterval(olnp.timer);
+                olnp.value = '游戏进行中.......';
+                olnp.timer = setInterval(function(){
+                    arr.sort(function(){
+                        return Math.random()-0.5;
+                    });
+                    domove(aspan2,'top',speen,500,function(){
+                        if(getstyle(aspan2,'top') >= '490'){
+                            fn1();
+                            speen+=0.2;
+                            shake(ocon,'top');
+                            n2++;
+                            aspan1[1].innerHTML = n2;
+                            if(n2 >= 3){
+                                onoff = true;
+                                oconn.style.display = 'block';
+                                clearInterval(olnp.timer);
+                            }
+                        }
+
+                    });
+                    aspan2.onclick = function(){
+                        clearInterval(aspan2.timer);
+                        oimg.src = json['url1'][0];
+                        shake(aspan2,'left',function(){
+                            fn1();
+                            n1++;
+                            speen+=0.2;
+                            aspan1[0].innerHTML = n1;
+                        })
+                    }
+
+                },1000)
+            }
+        }
+
+        function getstyle(obj,attr){
+            /*if(obj.currentStyle){
+                return obj.currentStyle[attr];
+              }else{
+                return getComputedStyle(obj)[attr];
+              }*/
+            return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,5)[attr];
+        }
+
+        function domove(obj/*对象*/,attr/*属性（left，top  ）*/,dir/*步幅（速度）*/,tinger/*目标点*/,endfn/*回调函数*/){
+
+            dir = parseFloat(getstyle(obj,attr)) < tinger ? dir : -dir;
+
+            clearInterval(obj.timer);
+
+            obj.timer = setInterval(function(){
+
+                var speed = parseFloat(getstyle(obj,attr)) + dir;
+
+                if(speed > tinger&&dir > 0||speed < tinger&&dir < 0){
+                    speed = tinger;
+                }
+
+                obj.style[attr] = speed + 'px';
+
+                if(speed == tinger){
+                    clearInterval(obj.timer);
+                    endfn&&endfn();
+                }
+            },30);
+        }
+
+//抖动
+        function shake(obj,attr,endfn){
+
+            if(obj.onoff) return;
+            obj.onoff = true;
+
+            var pos = parseInt(getstyle(obj,attr));
+
+            var arr = [];
+            var num = 0;
+            var onoff = true;
+
+            for(var i=20;i>0;i-=3){
+                arr.push(i,-i);
+            }
+            arr.push(0);
+
+            clearInterval(obj.shake);
+            obj.shake = setInterval(function(){
+                obj.style[attr] = pos + arr[num] + 'px';
+                num ++;
+                if(num == arr.length){
+                    clearInterval(obj.shake);
+                    obj.onoff = false;
+                    endfn&&endfn();
+                }
+            },30);
+
+        }
+
+    }
+</script>
+</html>
