@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="box">
+	<div id="div">div1<span>span1</span></div>
+</div>	
+<div id="box2"></div>
+<script type="text/javascript">
+(function(){
+	let box = document.querySelector('#box2');
+	let div = document.querySelector('#div');
+	let newDiv = div.cloneNode(true);
+	box.appendChild(newDiv);
+})();	
+/*
+	node.cloneNode(boolean)
+	克隆一个节点
+		true：克隆元素和元素包含的子孙节点
+		flase：克隆元素但不包含元素的子孙节点
+*/
+</script>
+</body>
+</html>

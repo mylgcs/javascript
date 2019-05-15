@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.wrap {
+			margin: 50px auto;
+			width: 400px;
+		} 
+		#message {
+			display: block;
+			box-sizing: border-box;
+			width: 400px;
+			height: 80px;
+			resize: none;
+			overflow: auto;
+		}
+		#btn {
+			display: block;
+			box-sizing: border-box;
+			width: 200px;
+			height: 36px;
+			margin: 10px auto;
+		}
+		.list {
+			margin: 0;
+			padding: 0 10px;
+			border-top: 1px solid #000;
+			list-style: none;
+		}
+		.list li {
+			padding: 5px;
+			border-bottom: 1px solid #000;
+			font: 14px/36px "宋体";
+		}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<textarea id="message">这是一条留言</textarea>
+	<button type="button" id="btn">提交留言</button>
+	<ul class="list">
+	</ul>
+</div>
+<script type="text/javascript">
+(function(){
+	let list = document.querySelector('.list');
+	let message = document.querySelector('#message');
+	let btn = document.querySelector('#btn');
+	// Array.from(list.children).forEach((item)=>{
+	// 	item.onclick = function(){
+	// 		this.style.background = "#eee";
+	// 	};
+	// });
+
+	// 注意 如果元素生成之前，去添加事件，新生成的元素上是没有这些事件的,必须要在生成之后，再去添加
+	btn.onclick = function(){
+		let val = message.value;
+		// 创建节点  document.createElement("标签名");
+		let li = document.createElement("li");
+		let a = document.createElement("a");
+		let span = document.createElement("span");
+		span.innerHTML = val;
+		a.href = "javascript:;";
+		a.innerHTML = "删除";
+
+		//删除元素 parent.removeChild(child) 从 parent 中删除掉 child
+
+		a.onclick = function(){
+			list.removeChild(li);
+		}
+
+		li.appendChild(span);
+		li.appendChild(a);
+
+
+		// 添加子元素 parent.appendChild(newNode); 向 parent 的末尾添加一个子元素 newNode;
+		list.appendChild(li);
+	};
+})();	
+</script>
+</body>
+</html>

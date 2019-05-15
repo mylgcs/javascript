@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style type="text/css">
+body {
+	margin: 0;
+}
+#mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background: #000;
+	height: 100%;
+	opacity: .5;
+}	
+#box {
+	position: relative;
+	width: 500px;
+	height: 500px;
+	border: 1px solid #000;
+}
+#div {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -110px 0 0 -110px;
+	width: 100px;
+	height: 100px;
+	background: red;
+	padding: 50px;
+	border: 10px solid #000;
+}
+</style>
+</head>
+<body>
+
+<div id="box">
+	<div id="div"></div>
+</div>
+<img src="img.png">  
+<!-- 图片在加载完之前，是没有高度 -->
+
+<!-- <div id="mask"></div> -->
+
+<script type="text/javascript">
+window.onload = function(){
+	// 获取可视区宽高 document.documentElement.clientWidth/clientHeight
+	console.log(document.documentElement.clientWidth,document.documentElement.clientHeight);
+
+	//页面宽高
+	console.log(document.body.scrollWidth,document.body.scrollHeight);
+	console.log(document.body.clientWidth,document.body.clientHeight);
+
+	//元素的宽高及坐标
+	let div = document.querySelector('#div');
+	// 定位父级
+	let parent = div.offsetParent;
+	console.log(parent);
+
+	console.log(div.offsetWidth,div.offsetHeight);
+	console.log(div.offsetLeft,div.offsetTop);
+
+	console.log("client:",div.clientWidth,div.clientHeight,div.clientLeft,div.clientTop);
+
+
+	/*
+		offset:
+			offsetParent 定位父级
+			offsetWidth = width + padding + border;
+			offsetHeight = height + padding + border;
+			offsetLeft/offsetTop 定位父级之间的距离
+		
+		client:
+			clientWidth = width + padding
+			clientHeight = height + padding
+			clientLeft = borderLeftWidth
+			clientTop = borderTopWidth	
+				
+	*/
+
+	/*
+		getBoundingClientRect()
+		{
+			top  == 元素顶部相对于可视区顶部的距离
+			left == 元素左侧相对于可视区左侧的距离
+			right == 元素右侧相对于可视区左侧的距离
+			bottom == 元素底部相对于可视区顶部的距离
+			width == offsetWidth
+			height == offsetHeight
+		}
+
+	*/
+	console.log(div.getBoundingClientRect());
+
+};	
+</script>
+</body>
+</html>

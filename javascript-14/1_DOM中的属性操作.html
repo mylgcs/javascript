@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<ul class="list">
+	<li>列表项1</li>
+	<li>列表项2</li>
+	<li>列表项3</li>
+</ul>
+<img src="cover-bg.png">
+<script type="text/javascript">
+/*
+node.getAttribute(attr)
+	获取元素指定属性名的属性值
+
+node.setAttribute(attr,value)
+	设置元素指定属性名的属性值
+
+node.removeAttribute(attr)
+	删除元素指定属性
+
+*/
+(function(){
+	let list = document.querySelector('.list');
+	let child = Array.from(list.children);
+	let img = document.querySelector('img');
+	child.forEach((li,index)=>{
+		//li.index = index;//. []  ECMAscript 中对对象的属性操作，属性值是存在内存中的
+		li.setAttribute("index",index);//DOM 方法的属性操作，值是存在DOM
+		li.onclick = function(){
+			alert(li.getAttribute("index")); 
+		}
+	});
+	console.log(img.getAttribute("src"));
+})();	
+</script>	
+</body>
+</html>

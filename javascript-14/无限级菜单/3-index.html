@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+    html {
+
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        margin: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .main {
+        width: 100%;
+        height: 100%;
+        background: url(./image/bg.png) no-repeat;
+        background-size: 100% 100%;
+        overflow: hidden;
+    }
+
+    .logo {
+        display: block;
+        width: 200px;
+        height: 55px;
+        background: url(./image/logo.png) no-repeat;
+        margin: 20px auto;
+    }
+
+    ul {
+        list-style: none;
+        font-size: 22px;
+        color: #8c949c;
+        font-weight: bold;
+    }
+
+    ul li {
+        position: relative;
+        padding-left: 10px;
+    }
+
+    ul div {
+        height: 98%;
+        width: 1px;
+        border-left: 1px dotted #ccc;
+        position: absolute;
+        left: 14px;
+        top: 18px;
+    }
+    
+    ul  span {
+        display: block;
+        line-height: 32px;
+        padding-left: 15px;
+        background: url(./image/icon.png) no-repeat left 500px;
+    }
+
+    ul span.add {
+        background-position: 0px -32px;
+    }
+
+    ul span.line {
+        background-position: 0px 11px;
+    }
+
+    
+    ul ul {
+        display: none;
+    }
+    .tree .show {
+        display: block;
+    }
+    
+
+    .tree {
+        margin-left: 300px;
+    }
+    </style>
+</head>
+
+<body>
+<div class="main">
+    <a href="http://www.miaov.com" class="logo"></a>
+    <div class="tree">
+        <!-- <ul>
+            <li>
+            	<span class="line">第一级菜单</span>
+            	<ul>
+            	    <li>
+            	    	<span class="line">第一级菜单</span>
+            	    </li>
+            	    <li>
+            	    	<span class="add">第一级菜单</span>
+            	    </li>
+            	    <li>
+            	    	<span class="add">第一集菜单</span>
+            	    </li>
+            	</ul>
+            </li>
+            <li>
+            	<span class="add">第一级菜单</span>
+            	<ul>
+            	    <li>
+            	    	<span class="line">第一级菜1</span>
+            	    </li>
+            	    <li>
+            	    	<span class="add">第一级菜单</span>
+            	    </li>
+            	    <li>
+            	    	<span class="add">第一集菜单</span>
+            	    </li>
+            	</ul>
+            </li>
+            <li>
+            	<span class="add">第一集菜单</span>
+            </li>
+        </ul> -->
+    </div>
+</div>
+<script>
+	
+var data = [
+	{
+		title: '音乐人',
+		children: [
+			{
+                title: '周杰伦',
+                children: [
+                    {
+                        title: '发如雪',
+                        children: [
+                            {
+                                title: '周杰伦',
+                                children: [
+                                    {
+                                        title: '发如雪',
+                                        
+                                    }
+                                ]
+                            },
+                            {
+                                title: '王杰'
+                            },
+                            {
+                                title: '周杰伦'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: '周杰伦',
+                children: [
+                    {
+                        title: '发如雪',
+                        children: [
+                            {
+                                title: '周杰伦',
+                                children: [
+                                    {
+                                        title: '发如雪',
+                                        
+                                    }
+                                ]
+                            },
+                            {
+                                title: '王杰'
+                            },
+                            {
+                                title: '周杰伦'
+                            }
+                        ]
+                    }
+                ]
+            },
+    		{
+    			title: '王杰'
+    		},
+    		{
+    			title: '周杰伦'
+    		}
+		]
+	},
+	{
+		title: '电影'
+	},
+	{
+		title: '体育',
+    		children: [
+    			{
+	    			title: '周杰伦',
+	    			children: [
+	    				{
+	    					title: '发如雪',
+	    					
+	    				}
+	    			]
+	    		},
+	    		{
+	    			title: '王杰'
+	    		},
+	    		{
+	    			title: '周杰伦'
+	    		}
+    		]
+	}
+];
+/*
+    生成数据
+*/
+(function(){
+    var tree = document.querySelector('.tree');
+    //console.log(data);
+    function createTree(info){
+        let str = `<ul>${
+            info.map((item)=>{
+                return `<li><span class="${item.children?"add":""}">${item.title}</span>${
+                        item.children?createTree(item.children):""
+                }</li>`
+            }).join("")
+        }</ul>`;
+        return str;   
+    }
+    tree.innerHTML = createTree(data);
+})();
+/* 添加事件 */
+(function(){
+    let tree = document.querySelector('.tree');
+    let span = tree.querySelectorAll('span');
+    span.forEach((item)=>{
+        item.onclick = function(){
+            let next = this.nextElementSibling;
+            if(next){ //当前是否存在对应的子菜单
+               let parentList = this.parentNode.parentNode;//获取到所有同级菜单的共同父级
+               let Lists =  parentList.querySelectorAll('ul');//获取它下边的所有菜单
+
+               // 操作当前对应的子菜单的显示或隐藏
+               let isShow =  next.classList.toggle("show");
+               
+               if(isShow){//true展开
+                this.classList.add("line");
+               } else { //收缩
+                this.classList.remove("line");   
+               }
+
+               // 除了当前菜单之外，其他的所有菜单都隐藏
+               Lists.forEach((item)=>{
+                    if(item == next){ //如果这项 刚好是我当前的子菜单就不做清除处理
+                        return ;
+                    }
+                    item.classList.remove("show");
+                    item.previousElementSibling.classList.remove("line"); 
+               });
+            }
+        };
+    });
+})()
+
+
+
+
+
+</script>
+</body>
+
+</html>
